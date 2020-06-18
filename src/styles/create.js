@@ -6,7 +6,7 @@ import {StyleSheet} from 'react-native'
             backgroundColor: '#778899'
         },
         setAtributos: {
-            height: 600,
+            height: 600, 
 
             padding: 10,
             marginTop: 5,
@@ -27,11 +27,12 @@ import {StyleSheet} from 'react-native'
         item: {
 
             alignSelf: 'center',
-            marginBottom: 40
+            marginBottom: 40,
         },
         itens: {
 
-            alignSelf: 'center'
+            alignSelf: 'center',
+            marginTop: 30
         },
         button: {
             alignItems: 'center',
@@ -47,8 +48,11 @@ import {StyleSheet} from 'react-native'
             width: 30,
             height: 20,
 
+            borderRadius: 2,
+
             marginRight: -130,
             marginVertical: -40,
+            marginTop: -70,
 
             backgroundColor: 'green'
         },
@@ -60,7 +64,8 @@ import {StyleSheet} from 'react-native'
             height: 20,
             marginLeft: -130,
             marginBottom:-23,
-
+            marginTop: 10,
+            borderRadius: 2,
             // marginLeft: -130,
             // marginVertical: -40,
 
@@ -68,8 +73,11 @@ import {StyleSheet} from 'react-native'
         },
         lista: {
             padding: 30,
-            borderWidth: 1,
-            borderStyle: 'dotted'
+            borderStyle: 'dotted',
+            borderWidth: 1, 
+            borderRadius: 9 ,
+            width: 230,
+            alignSelf: 'center'
 
 
 
