@@ -209,7 +209,7 @@ const create = () => {
   return (
       <View style = {styles.container}>
           <View style = {styles.setAtributos}  >
-              <Text style = {{alignSelf: 'center', color: 'green', fontWeight: 'bold', fontSize: 20, marginBottom: 2}} > Atributo </Text>
+              <Text style = {{alignSelf: 'center', color: 'green', fontWeight: 'bold', fontSize: 30, marginBottom: 2}} > Atributo </Text>
               <FlatList
                     style = {styles.lista}
                     numColumns = '1'
@@ -221,7 +221,7 @@ const create = () => {
                         <View style={styles.item}>
                             <TouchableHighlight
                                 style = {styles.button}
-                                onPress = {() => {}}
+                                onPress = {() => {}} 
                             >
                                  <Text style ={ styles.buttonMinus } > - </Text> 
                                  </TouchableHighlight>
@@ -229,7 +229,7 @@ const create = () => {
                             <Text style = {styles.itens}>{item.atributo}</Text>
                             <TouchableHighlight
                                 style = {styles.button}
-                                onPress = {() => {}}
+                                onPress = {() => {setArob(Arob + 1)}}
                             >
                                  <Text style ={ styles.buttonAdd } > + </Text> 
                                  </TouchableHighlight>
