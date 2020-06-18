@@ -38,8 +38,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         textAlignVertical:'center',
         fontSize: 20,
-        color: 'green',
-        fontWeight: 'bold'
+        color: 'lightgreen',
+        fontWeight: 'bold',
+        marginTop: -100,
+        marginBottom: 200
 
     },
 
