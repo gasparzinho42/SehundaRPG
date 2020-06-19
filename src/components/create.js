@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, FlatList, TouchableHighlight } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, FlatList, TouchableOpacity, Alert,  } from 'react-native';
 import styles from '../styles/create'
+import {Button, } from 'react-native-elements'
+
 
 
 // import { Container } from './styles';
 
-const create = () => {
+export default function create() {
     const [ Arob, setArob ] = useState( 5 )
     const [ Aagi, setAagi ] = useState( 5 )
     const [ Aard, setAard ] = useState( 5 )
@@ -19,25 +21,27 @@ const create = () => {
     
 
     const [ atributos, setAtributos ] = useState([
-        {id: "01", name: "Robustez", sucesso:  Arob - 4   ,atributo:  Arob , falha: Arob + 5 },
-        {id: "02", name: "Agilidade", sucesso:  Aagi - 4 ,atributo: Aagi  , falha: Aagi + 5 },
-        {id: "03", name: "Ardileza", sucesso:  Aard - 4 ,atributo: Aard  , falha: Aard + 5 },
-        {id: "04", name: "Vigilância", sucesso: Avig - 4 ,atributo: Avig  , falha: Avig + 5 },
-        {id: "05", name: "Sabedoria", sucesso: Asab - 4 ,atributo: Asab , falha: Asab + 5 },
-        {id: "06", name: "Resolução", sucesso:  Ares - 4 ,atributo: Ares  , falha: Ares + 5 }
+        {id: 0, name: "Robustez", sucesso:  Arob - 4   ,atributo:  Arob , falha: Arob + 5 },
+        {id: 1, name: "Agilidade", sucesso:  Aagi - 4 ,atributo: Aagi  , falha: Aagi + 5 },
+        {id: 2, name: "Ardileza", sucesso:  Aard - 4 ,atributo: Aard  , falha: Aard + 5 },
+        {id: 3, name: "Vigilância", sucesso: Avig - 4 ,atributo: Avig  , falha: Avig + 5 },
+        {id: 4, name: "Sabedoria", sucesso: Asab - 4 ,atributo: Asab , falha: Asab + 5 },
+        {id: 5, name: "Resolução", sucesso:  Ares - 4 ,atributo: Ares  , falha: Ares + 5 }
 
     ])
 
     const [data, setData] = useState([
         
 
-        {id: "00", name: "vigor",valor_atual: Va , valor_total: `/${Arob + 10}` },
-        {id: "01", name: "Def",valor_base: Aagi - imp + escudo } ,
-        {id: "02", name: "P.P",valor_base: Math.floor((Arob + Aagi)/2)  },
-        {id:"03", name: "P.D",valor_base:   Math.floor((Avig + Aagi)/2) },
-        {id: "04", name: "Vont",valor_base: Ares + 10  }
+        {id: 0, name: "vigor",valor_atual: Va , valor_total: `/${Arob + 10}` },
+        {id: 1, name: "Def",valor_base: Aagi - imp + escudo } ,
+        {id: 2, name: "P.P",valor_base: Math.floor((Arob + Aagi)/2)  },
+        {id: 3, name: "P.D",valor_base:   Math.floor((Avig + Aagi)/2) },
+        {id: 4, name: "Vont",valor_base: Ares + 10  }
 
     ])
+
+    
 
     const [ talento, setTalento ] = useState([
         {id: "00", name: 'Batedor', Descricao: "Novato\n"
@@ -206,39 +210,244 @@ const create = () => {
             + " aliviando 1d4 ponto de estresse."}
 
     ])
+    //funcoes dos botoes
+    //botoes Arob
+        const arobplus = () => {
+            setArob( Arob + 1 )
+            return atributos[0].atributo = Arob + 1
+            
+            
+        }
+        const arobMinus = () => {
+            setArob( Arob - 1 )
+            return atributos[0].atributo = Arob - 1
+        }
+    //botoes Aagi
+        const aagiplus = () => {
+            setAagi( Aagi + 1 )
+            atributos[1].atributo = Aagi + 1
+            
+        }
+        const aagiMinus = () => {
+            setAagi( Aagi - 1 )
+
+            return atributos[1].atributo = Aagi - 1
+        }
+    //botoes Aard
+        const aardplus = () => {
+            setAard( Aard + 1 )
+            return atributos[2].atributo = Aard + 1
+            
+        }
+        const aardMinus = () => {
+            setAard( Aard - 1 )
+
+            return atributos[2].atributo = Aard - 1
+        }
+    //botoes Avig
+        const avigplus = () => {
+            setAvig( Avig + 1 )
+            return atributos[3].atributo = Avig + 1
+            
+        }
+        const avigMinus = () => {
+            setAvig( Avig - 1 )
+
+            return atributos[3].atributo = Avig - 1
+        }
+    //botoes Asab
+        const asabplus = () => {
+            setAsab( Asab + 1 )
+            return atributos[4].atributo = Asab + 1
+            
+        }
+        const asabMinus = () => {
+            setAsab( Asab - 1 )
+
+            return atributos[4].atributo = Asab - 1
+        }
+    //botoes Ares
+        const aresplus = () => {
+            setAres( Ares + 1 )
+            return atributos[5].atributo = Ares + 1
+            
+        }
+        const aresMinus = () => {
+            setAres( Ares - 1 )
+
+            return atributos[5].atributo = Ares
+        }
+    //fim dos botoes
+
+    
   return (
       <View style = {styles.container}>
-          <View style = {styles.setAtributos}  >
-              <Text style = {{alignSelf: 'center', color: 'green', fontWeight: 'bold', fontSize: 30, marginBottom: 2}} > Atributo </Text>
-              <FlatList
-                    style = {styles.lista}
-                    numColumns = '1'
-                    data = {atributos}
-                    keyExtractor={item => item.id}
-                    renderItem={({ item }) => {
-                    return (
-                        // retorna os items do DATA
-                        <View style={styles.item}>
-                            <TouchableHighlight
-                                style = {styles.button}
-                                onPress = {() => {}} 
-                            >
-                                 <Text style ={ styles.buttonMinus } > - </Text> 
-                                 </TouchableHighlight>
-                            <Text style={styles.itemText}>{item.name}</Text>
-                            <Text style = {styles.itens}>{item.atributo}</Text>
-                            <TouchableHighlight
-                                style = {styles.button}
-                                onPress = {() => {setArob(Arob + 1)}}
-                            >
-                                 <Text style ={ styles.buttonAdd } > + </Text> 
-                                 </TouchableHighlight>
+          < View style = {styles.setAtributos}  >
+                
+                <Text style = {{alignSelf: 'center', color: 'green', fontWeight: 'bold', fontSize: 30, marginBottom: 2}} > Atributos </Text>
+                <View style = { styles.viewButtons }>
+                    {/* botoes Arob */}
+                        <Button
+                            delayPressIn = {0}
+                            title = ' + '
+                            buttonStyle = {styles.buttonplus}
+                            onPress = { arobplus } 
+                            
+                            
+                        />
+                        <Button
+                            delayPressIn = {0}
+                            title = ' - '
+                            buttonStyle = {styles.buttonminus}
+                            onPress = { arobMinus } 
+                            
+                            
+                        />
+                    {/* fim botoes Arob */}
 
-                        </View>
+
+                </View>
+                
+                <View style = { styles.viewButtons }>
+                    {/* botoes Aagi */}
+                        <Button
+                            title = ' + '
+                            buttonStyle = {styles.buttonplus}
+                            onPress = { aagiplus } 
+                            
+                            
+                        />
+                        <Button
+                            title = ' - '
+                            buttonStyle = {styles.buttonminus}
+                            onPress = { aagiMinus } 
+                            
+                            
+                        />
+                    {/* botoes Aagi */}
+
+
+                </View>
+
+                
+                <View style = { styles.viewButtons }>
+                    {/* botoes Aard */}
+                        <Button
+                            title = ' + '
+                            buttonStyle = {styles.buttonplus}
+                            onPress = { aardplus } 
+                            
+                            
+                        />
+                        <Button
+                            title = ' - '
+                            buttonStyle = {styles.buttonminus}
+                            onPress = { aardMinus } 
+                    
+                     
+                        />
+                    {/* botoes Aard */}
+
+
+                </View>
+                
+                
+                <View style = { styles.viewButtons }>
+                    {/* botoes Avig */}
+                        <Button
+                            title = ' + '
+                            buttonStyle = {styles.buttonplus}
+                            onPress = { avigplus } 
+                            
+                            
+                        />
+                        <Button
+                            title = ' - '
+                            buttonStyle = {styles.buttonminus}
+                            onPress = { avigMinus } 
+                            
+                            
+                        />
+                    {/* botoes Avig */}
+
+
+                </View>
+                
+                <View style = { styles.viewButtons }>
+
+                        {/* botoes Asab */}
+                                <Button
+                                    title = ' + '
+                                    buttonStyle = {styles.buttonplus}
+                                    onPress = { asabplus } 
+                                            
+                                            
+                                />
+                                <Button
+                                    title = ' - '
+                                    buttonStyle = {styles.buttonminus}
+                                    onPress = { asabMinus } 
+                                            
+                                            
+                                    />
+                        {/* botoes Asab */}
+
+
+                </View>
+
+                <View style = { styles.viewButtons }>
+                        {/* botoes Ares */}
+                            <Button
+                                title = ' + '
+                                buttonStyle = {styles.buttonplus}
+                                onPress = { aresplus } 
+                                
+                                
+                            />
+                            <Button
+                                
+                                title = ' - '
+                                buttonStyle = {styles.buttonminus}
+                                onPress = { aresMinus } 
+                                
+                                
+                            />
+                    {/* botoes Ares */}
+
+                </View>
+                
+
+
+
                         
-                    );
-                    }} 
-                />
+                
+                <FlatList
+                        keyboardShouldPersistTaps = "always"
+                        style = {styles.lista}
+                        numColumns = '1'
+                        data = {atributos}
+                        
+                        refreshing = { true }
+                        keyExtractor={item => item.id}
+                        
+                        renderItem={({ item }) => {
+                        return (
+                            // retorna os items do DATA
+                            <View style={styles.item}>
+                                
+                                <Text style={styles.itemText}>{item.name}</Text>
+                        <Text style = {styles.itens}>{ item.atributo } </Text>
+                                
+                                    
+
+                            </View>
+                            
+                        );
+                        }} 
+                        />
+                            
+                    
+                
 
 
           </View>
@@ -251,4 +460,3 @@ const create = () => {
   );
 }
 
-export default create;
