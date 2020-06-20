@@ -90,13 +90,16 @@ import {StyleSheet} from 'react-native'
         },
         lista: {
             // padding: 30,
-            borderStyle: 'dotted',
+            borderStyle: 'dashed',
             borderWidth: 1, 
             borderRadius: 9 ,
+
             height: '90%',
             width: 230,
+
             alignSelf: 'center',
             position: 'absolute',
+            
             marginTop: 50
             
 
@@ -111,6 +114,29 @@ import {StyleSheet} from 'react-native'
             marginTop:20,
             
         },
+        viewpontos: {
+            flexDirection: 'row-reverse',
+            
+            justifyContent: 'space-between' ,
+            width: '100%'
+        },
+        interrogacao: {
+            height:26,
+            width:25,
+            
+            marginTop:10,
+            marginRight: 70
+
+
+        },
+        textoAtributos: {
+            alignSelf: 'center',
+            color: 'green',
+            fontWeight: 'bold',
+            fontSize: 30,
+            marginBottom: 2
+        },
+
 })
 
 

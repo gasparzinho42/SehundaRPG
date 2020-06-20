@@ -8,6 +8,8 @@ import ficha from './ficha';
 import home from './home';
 import create from './create';
 import ficha_old from './ficha_old';
+import teste2 from './teste2';
+
 
 
 
@@ -17,7 +19,8 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen name="test" component={ ficha_old } /> */}
+       {/* descomentar abaixo para acessar a ficha final */}
+      {/* <Stack.Screen name="personagem" component={ ficha } /> */}
         <Stack.Screen name="Sehunda" component={ home } />
         
         <Stack.Screen name="criação" component={ create } />
