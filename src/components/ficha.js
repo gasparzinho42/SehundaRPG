@@ -154,9 +154,9 @@ export default function ficha() {
                     <TouchableOpacity 
                         style = {styles. buttonContainerAdd}
                         
-                        onPress = { adicionar }
+                        onPress = { retirar }
                     >
-                        <Text style = {styles.button}>  +  </Text>
+                        <Text style = {styles.button}>  -  </Text>
                     </TouchableOpacity>
                     <Text style = {styles.span}>{estresse}/10</Text>
                     <TouchableOpacity
@@ -164,9 +164,9 @@ export default function ficha() {
                         style = {styles. buttonContainerMinus}
                         
                         activeOpacity = {0.3}
-                        onPress = { retirar }
+                        onPress = { adicionar }
                     >
-                        <Text style = {styles.button}>   -   </Text>
+                        <Text style = {styles.button}>   +   </Text>
                     </TouchableOpacity> 
                     
                 </View>

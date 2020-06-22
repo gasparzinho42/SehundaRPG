@@ -3,18 +3,22 @@ import {StyleSheet} from 'react-native'
  const styles = StyleSheet.create({
         container: {
             flex:1,
-            backgroundColor: '#778899'
+            backgroundColor: 'indigo'
         },
         setAtributos: {
-            height: 600, 
-
-            padding: 10,
-            marginTop: 5,
             alignSelf: 'center',
-            backgroundColor: '#fff',
             
+            padding: 4,
+            marginTop: 5,
+            
+            
+
+            borderRadius: 9,
+
+            height: 600, 
             width: '90%',
-            borderRadius: 9
+            
+            backgroundColor: '#fff',
         },
         itemText:{
 
@@ -27,61 +31,112 @@ import {StyleSheet} from 'react-native'
         item: {
 
             alignSelf: 'center',
-            marginBottom: 40,
+            marginBottom: 10,
+            marginTop: 20 ,
         },
         itens: {
 
             alignSelf: 'center',
-            marginTop: 30
+            marginTop: 5
         },
-        button: {
-            alignItems: 'center',
+        // button: {
             
-            borderRadius: 9
+        //     alignItems: 'center',
+        //     borderRadius: 5,
+        //     height: 25,
+        //     width: 30,
+        //     marginBottom: 5 ,
+        //     backgroundColor: 'green'
 
+            
+
+
+        // },
+        buttonplus: {
+            alignSelf: 'center',
+
+            marginRight: 20,
+            
+           
+
+            borderRadius: 5,
+
+            height: 25,
+            width: 35,
+
+            
+
+            backgroundColor: 'green',
+           
 
         },
-        buttonAdd: {
-            textAlign: "center",
-            textAlignVertical: 'center' ,
+        buttonminus: {
+            
+            alignSelf: 'center',
 
-            width: 30,
-            height: 20,
+            borderRadius: 5,
+            
 
-            borderRadius: 2,
+            marginLeft: 20,
+           
+            height: 25,
+            width: 35,
 
-            marginRight: -130,
-            marginVertical: -40,
-            marginTop: -70,
-
-            backgroundColor: 'green'
-        },
-        buttonMinus: {
-            textAlign: "center",
-            textAlignVertical: 'center' ,
-
-            width: 30,
-            height: 20,
-            marginLeft: -130,
-            marginBottom:-23,
-            marginTop: 10,
-            borderRadius: 2,
-            // marginLeft: -130,
-            // marginVertical: -40,
+          
 
             backgroundColor: 'green'
+
+            
         },
         lista: {
-            padding: 30,
-            borderStyle: 'dotted',
+            padding: 0,
+            borderStyle: 'solid',
             borderWidth: 1, 
             borderRadius: 9 ,
-            width: 230,
-            alignSelf: 'center'
+
+            height: '90%',
+            width: 200,
+
+            alignSelf: 'center',
+            position: 'absolute',
+            
+            marginTop: 50
+            
 
 
 
-        }
+        },
+        viewButtons: {
+
+            justifyContent: "space-between",
+            flexDirection: "row-reverse",
+            marginBottom:-8,
+            marginTop:60,
+            
+        },
+        viewpontos: {
+            flexDirection: 'row-reverse',
+            
+            justifyContent: 'space-between' ,
+            width: '100%'
+        },
+        interrogacao: {
+            height:26,
+            width:25,
+            
+            marginTop:10,
+            marginRight: 70
+
+
+        },
+        textoAtributos: {
+            marginLeft: 125,
+            color: 'gold',
+            fontWeight: 'bold',
+            fontSize: 32,
+            marginBottom: 2
+        },
+
 })
 
 

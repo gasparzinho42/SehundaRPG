@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'lightgreen',
         fontWeight: 'bold',
-        marginTop: -100,
-        marginBottom: 200
+        marginTop: -190,
+        marginBottom: 260
 
     },
 
