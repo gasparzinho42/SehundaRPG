@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native'
  const styles = StyleSheet.create({
         container: {
             flex:1,
-            backgroundColor: '#778899'
+            backgroundColor: 'indigo'
         },
         setAtributos: {
             alignSelf: 'center',
@@ -55,7 +55,7 @@ import {StyleSheet} from 'react-native'
         buttonplus: {
             alignSelf: 'center',
 
-            marginRight: 10,
+            marginRight: 20,
             
            
 
@@ -77,9 +77,9 @@ import {StyleSheet} from 'react-native'
             borderRadius: 5,
             
 
-            marginLeft: 10,
+            marginLeft: 20,
            
-            height: 26,
+            height: 25,
             width: 35,
 
           
@@ -89,13 +89,13 @@ import {StyleSheet} from 'react-native'
             
         },
         lista: {
-            // padding: 30,
-            borderStyle: 'dashed',
+            padding: 0,
+            borderStyle: 'solid',
             borderWidth: 1, 
             borderRadius: 9 ,
 
             height: '90%',
-            width: 230,
+            width: 200,
 
             alignSelf: 'center',
             position: 'absolute',
@@ -110,8 +110,8 @@ import {StyleSheet} from 'react-native'
 
             justifyContent: "space-between",
             flexDirection: "row-reverse",
-            marginBottom:39,
-            marginTop:20,
+            marginBottom:-8,
+            marginTop:60,
             
         },
         viewpontos: {
@@ -130,10 +130,10 @@ import {StyleSheet} from 'react-native'
 
         },
         textoAtributos: {
-            alignSelf: 'center',
-            color: 'green',
+            marginLeft: 125,
+            color: 'gold',
             fontWeight: 'bold',
-            fontSize: 30,
+            fontSize: 32,
             marginBottom: 2
         },
 
