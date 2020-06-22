@@ -121,8 +121,8 @@ import {StyleSheet} from 'react-native'
             width: '100%'
         },
         interrogacao: {
-            height:26,
-            width:25,
+            height:27.5,
+            width:27.5,
             
             marginTop:10,
             marginRight: 70
@@ -135,6 +135,61 @@ import {StyleSheet} from 'react-native'
             fontWeight: 'bold',
             fontSize: 32,
             marginBottom: 2
+        },
+        modalinterrogacao: {
+            alignSelf: 'center' ,
+            marginVertical: '50%',
+            textAlign: 'center',
+
+            height: '50%',
+            width: '65%',
+
+            padding: 9,
+
+            backgroundColor: 'indigo',
+            borderRadius: 5,
+        },
+        textInterrogacao: {
+            color: 'gold',
+            fontWeight: 'bold',
+            fontSize: 20,
+            textAlign: 'center'
+            
+        },
+        listaInt: {
+            padding: 0,
+        
+            height: '90%',
+            width: 200,
+
+            alignSelf: 'center',
+             
+            marginTop: 30
+
+        },
+        Xmodal: {
+            color: 'gold',
+            fontWeight: 'bold',
+            fontSize: 20,
+            alignSelf: 'flex-end',
+            marginBottom: 30
+
+        },
+        escolha: {
+            alignSelf:'center',
+            textAlign: 'center',
+            textAlignVertical: 'center',
+
+            color:'indigo',
+
+            height: '5%' ,
+            width: '90%' ,
+
+            marginTop:10,
+            borderWidth: 1,
+            borderColor: 'indigo',
+            borderRadius: 9 ,
+            
         },
 
 })

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, FlatList, TouchableOpacity, Alert, Image, ScrollView  } from 'react-native';
+import React, { useState, useEffect,  } from 'react';
+import { View, Text, TextInput, FlatList, TouchableOpacity, Alert, Image, ScrollView, Modal,   } from 'react-native';
 import styles from '../styles/create'
 import {Button, } from 'react-native-elements'
 
@@ -18,6 +18,8 @@ export default function create() {
     const [ Va, setVa ] = useState( Arob + 10 )
     const [ imp, setImp ] = useState( 0 )
     const [ escudo, setEscudo ] = useState( 0 )
+
+    const [escolha, setEscolha] = useState( " escolha seu talento " )
     
     
 
@@ -332,17 +334,50 @@ export default function create() {
     ])
     const [pontos, setPontos] = useState( 30 )
     const [ cor, setCor ] = useState( "red" )
-    
+    const [isvisible1, setIsvisible1] = useState(false)
+    const [isvisible2, setIsvisible2] = useState(false)
+    const info1 = [
+        { Key: '00', vm: 15, vmn: 5 },
+        
+
+    ]
 
     
   return (
 
     
       <ScrollView style = {styles.container}>
-          <View style = {styles.viewpontos}>
+          <Modal visible = { isvisible1 }  animationType = 'slide' transparent = {true} >
+
+              <View style = {styles.modalinterrogacao} >
+                  <Text style = {styles.Xmodal}
+                   onPress = {() => { setIsvisible1( false ) }}
+                   > x </Text>
+
+                <Text style = {styles.textInterrogacao} > A soma de todos os atributos deve ser no máximo 60 pontos! </Text>
+                <FlatList
+                    style = {styles.listaInt}
+                    numColumns = '1'
+                    data = {[info1]}
+                    keyExtractor = {item => item.Key}
+                    renderItem = { ({item}) => 
+                        <View > 
+                            <Text style = { styles.textInterrogacao }>. Valor Maximo do atributo: { item[0].vm } </Text>
+                            <Text style = { styles.textInterrogacao } >. Valor mínimo do atributo: { item[0].vmn } </Text>
+
+                        </View>
+                        
+                    }
+                />
+
+              </View>
+              
+          </Modal>
+          {/* atributos e interrogação */}
+          <View style = {styles.viewpontos} >
               <TouchableOpacity
                 style = {{ width: '6%', marginRight: 40,marginTop: -7, justifyContent: 'center'}}
-                onPress = { () => {Alert.alert( ' A soma de todos os atributos deve ser no máximo 60 pontos! Valor máximo do atributo: 15 Valor mínimo do atributo: 5 ' )} }
+                onPress = { () => { setIsvisible1( true ) } }
               >
                   <Image
                     style = {styles.interrogacao}
@@ -355,497 +390,519 @@ export default function create() {
               <Text style = {styles.textoAtributos} > Atributos </Text>
 
 
-          </View>
+            </View>
+            {/* fim atributos e interrogação */}
           
           
-          < View style = {styles.setAtributos}  >
-                
-                
-                <Text style = {{ marginLeft: 107,color: 'green', fontWeight: 'bold', fontSize: 25,}} > Pontos: { pontos } </Text>
-                <View style = { styles.viewButtons }>
-                    {/* botoes Arob */}
-                        <Button
-                            
-                            disabled = { desativar[0].desativar }
-
-                            title = ' + '
-                            buttonStyle = {styles.buttonplus}
-                            onPress = { () => {
-                                if ( pontos >= 60 || atributos[ 0 ].atributo >= 15  ){
-                                    
-                                    var corNova = "#f11f"
-                                    setCor(  corNova  )
-                                   
-                                    var atrdesativar = true
-                                    return desativar[0].desativar = atrdesativar
-                        
-                                }
-                                else if( pontos < 60 )  { 
-                                    var atrdesativar = false
-                                    desativar[0].desativar = atrdesativar
-                                    var corNova = "red"
-                                    setCor(  corNova  )
-                                    var atrdesativarMinus = false
-                                    desativarMinus[0].desativar = atrdesativarMinus
-                                    
-                                    
-                                     
-                                    return arobplus() 
-                                 }
-                                
-
-                            }} 
-                            
-                            
-                        />
-                        <Button
-                            
-                            disabled = { desativarMinus[0].desativar }
-                                title = ' - '
-                                buttonStyle = {styles.buttonminus}
-                                onPress = { () => {
-                                    if ( pontos > 60 || atributos[0].atributo <= 5 ){
-                                        
-                                        var corNova = "#f12f"
-                                        setCor(  corNova  )
-                                        var atrdesativar = true
-                                        return desativarMinus[0].desativar =atrdesativar
-                            
-                                    }
-                                    else { 
-                                        var atrdesativarMinus = false
-                                        desativarMinus[0].desativar =atrdesativarMinus
-                                        var atrdesativar = false 
-                                        desativar[0].desativar = atrdesativar
-
-                                        var corNova = "red"
-                                        setCor(  corNova  )
-                                        
-                                        
-                                         
-                                        return arobMinus() 
-                                     }
-                                    
-    
-                                }}  
-                            
-                            
-                        />
-                    {/* fim botoes Arob */}
-
-
-                </View>
-                
-                <View style = { styles.viewButtons }>
-                    {/* botoes Aagi */}
-                    <Button
-                            
-                            disabled = { desativar[1].desativar }
-
-                            title = ' + '
-                            buttonStyle = {styles.buttonplus}
-                            onPress = { () => {
-                                if ( pontos >= 60 || atributos[ 1 ].atributo >= 15  ){
-                                    
-                                    var corNova = "#f11f"
-                                    setCor(  corNova  )
-                                   
-                                    var atrdesativar = true
-                                    return desativar[1].desativar = atrdesativar
-                        
-                                }
-                                else if( pontos < 60 )  { 
-                                    var atrdesativar = false
-                                    desativar[1].desativar = atrdesativar
-                                    var corNova = "red"
-                                    setCor(  corNova  )
-                                    var atrdesativarMinus = false
-                                    desativarMinus[1].desativar = atrdesativarMinus
-                                    
-                                    
-                                     
-                                    return aagiplus() 
-                                 }
-                                
-
-                            }} 
-                            
-                            
-                        />
-                        <Button
-                            
-                            disabled = { desativarMinus[1].desativar }
-                                title = ' - '
-                                buttonStyle = {styles.buttonminus}
-                                onPress = { () => {
-                                    if ( pontos > 60 || atributos[1].atributo <= 5 ){
-                                        
-                                        var corNova = "#f12f"
-                                        setCor(  corNova  )
-                                        var atrdesativar = true
-                                        return desativarMinus[1].desativar =atrdesativar
-                            
-                                    }
-                                    else { 
-                                        var atrdesativarMinus = false
-                                        desativarMinus[1].desativar =atrdesativarMinus
-                                        var atrdesativar = false 
-                                        desativar[1].desativar = atrdesativar
-
-                                        var corNova = "red"
-                                        setCor(  corNova  )
-                                        
-                                        
-                                         
-                                        return aagiMinus() 
-                                     }
-                                    
-    
-                                }}  
-                            
-                            
-                        />
-                    {/* fim botoes Aagi */}
-
-
-                </View>
-
-                
-                <View style = { styles.viewButtons }>
-                    {/* botoes Aard */}
-                    <Button
-                            
-                            disabled = { desativar[2].desativar }
-
-                            title = ' + '
-                            buttonStyle = {styles.buttonplus}
-                            onPress = { () => {
-                                if ( pontos >= 60 || atributos[ 2 ].atributo >= 15  ){
-                                    
-                                    var corNova = "#f11f"
-                                    setCor(  corNova  )
-                                   
-                                    var atrdesativar = true
-                                    return desativar[2].desativar = atrdesativar
-                        
-                                }
-                                else if( pontos < 60 )  { 
-                                    var atrdesativar = false
-                                    desativar[2].desativar = atrdesativar
-                                    var corNova = "red"
-                                    setCor(  corNova  )
-                                    var atrdesativarMinus = false
-                                    desativarMinus[2].desativar = atrdesativarMinus
-                                    
-                                    
-                                     
-                                    return aardplus() 
-                                 }
-                                
-
-                            }} 
-                            
-                            
-                        />
-                        <Button
-                            
-                            disabled = { desativarMinus[2].desativar }
-                                title = ' - '
-                                buttonStyle = {styles.buttonminus}
-                                onPress = { () => {
-                                    if ( pontos > 60 || atributos[2].atributo <= 5 ){
-                                        
-                                        var corNova = "#f12f"
-                                        setCor(  corNova  )
-                                        var atrdesativar = true
-                                        return desativarMinus[2].desativar =atrdesativar
-                            
-                                    }
-                                    else { 
-                                        var atrdesativarMinus = false
-                                        desativarMinus[2].desativar =atrdesativarMinus
-                                        var atrdesativar = false 
-                                        desativar[2].desativar = atrdesativar
-
-                                        var corNova = "red"
-                                        setCor(  corNova  )
-                                        
-                                        
-                                         
-                                        return aardMinus() 
-                                     }
-                                    
-    
-                                }}  
-                            
-                            
-                        />
-                    {/* fim botoes Aard */}
-
-
-                </View>
-                
-                
-                <View style = { styles.viewButtons }>
-                    {/* botoes Avig */}
-                    <Button
-                            
-                            disabled = { desativar[3].desativar }
-
-                            title = ' + '
-                            buttonStyle = {styles.buttonplus}
-                            onPress = { () => {
-                                if ( pontos >= 60 || atributos[ 3 ].atributo >= 15  ){
-                                    
-                                    var corNova = "#f11f"
-                                    setCor(  corNova  )
-                                   
-                                    var atrdesativar = true
-                                    return desativar[3].desativar = atrdesativar
-                        
-                                }
-                                else if( pontos < 60 )  { 
-                                    var atrdesativar = false
-                                    desativar[3].desativar = atrdesativar
-                                    var corNova = "red"
-                                    setCor(  corNova  )
-                                    var atrdesativarMinus = false
-                                    desativarMinus[3].desativar = atrdesativarMinus
-                                    
-                                    
-                                     
-                                    return avigplus() 
-                                 }
-                                
-
-                            }} 
-                            
-                            
-                        />
-                        <Button
-                            
-                            disabled = { desativarMinus[3].desativar }
-                                title = ' - '
-                                buttonStyle = {styles.buttonminus}
-                                onPress = { () => {
-                                    if ( pontos > 60 || atributos[3].atributo <= 5 ){
-                                        
-                                        var corNova = "#f12f"
-                                        setCor(  corNova  )
-                                        var atrdesativar = true
-                                        return desativarMinus[3].desativar =atrdesativar
-                            
-                                    }
-                                    else { 
-                                        var atrdesativarMinus = false
-                                        desativarMinus[3].desativar =atrdesativarMinus
-                                        var atrdesativar = false 
-                                        desativar[3].desativar = atrdesativar
-
-                                        var corNova = "red"
-                                        setCor(  corNova  )
-                                        
-                                        
-                                         
-                                        return avigMinus() 
-                                     }
-                                    
-    
-                                }}  
-                            
-                            
-                        />
-                    {/* fim botoes Avig */}
-
-
-                </View>
-                
-                <View style = { styles.viewButtons }>
-
-                        {/* botoes Asab */}
-                        <Button
-                            
-                            disabled = { desativar[4].desativar }
-
-                            title = ' + '
-                            buttonStyle = {styles.buttonplus}
-                            onPress = { () => {
-                                if ( pontos >= 60 || atributos[ 4 ].atributo >= 15  ){
-                                    
-                                    var corNova = "#f11f"
-                                    setCor(  corNova  )
-                                   
-                                    var atrdesativar = true
-                                    return desativar[4].desativar = atrdesativar
-                        
-                                }
-                                else if( pontos < 60 )  { 
-                                    var atrdesativar = false
-                                    desativar[4].desativar = atrdesativar
-                                    var corNova = "red"
-                                    setCor(  corNova  )
-                                    var atrdesativarMinus = false
-                                    desativarMinus[4].desativar = atrdesativarMinus
-                                    
-                                    
-                                     
-                                    return asabplus() 
-                                 }
-                                
-
-                            }} 
-                            
-                            
-                        />
-                        <Button
-                            
-                            disabled = { desativarMinus[4].desativar }
-                                title = ' - '
-                                buttonStyle = {styles.buttonminus}
-                                onPress = { () => {
-                                    if ( pontos > 60 || atributos[4].atributo <= 5 ){
-                                        
-                                        var corNova = "#f12f"
-                                        setCor(  corNova  )
-                                        var atrdesativar = true
-                                        return desativarMinus[4].desativar =atrdesativar
-                            
-                                    }
-                                    else { 
-                                        var atrdesativarMinus = false
-                                        desativarMinus[4].desativar =atrdesativarMinus
-                                        var atrdesativar = false 
-                                        desativar[4].desativar = atrdesativar
-
-                                        var corNova = "red"
-                                        setCor(  corNova  )
-                                        
-                                        
-                                         
-                                        return asabMinus() 
-                                     }
-                                    
-    
-                                }}  
-                            
-                            
-                        />
-                        {/* botoes Asab */}
-
-
-                </View>
-
-                <View style = { styles.viewButtons }>
-                        {/* botoes Ares */}
-                        <Button
-                            
-                            disabled = { desativar[5].desativar }
-
-                            title = ' + '
-                            buttonStyle = {styles.buttonplus}
-                            onPress = { () => {
-                                if ( pontos >= 60 || atributos[ 5 ].atributo >= 15  ){
-                                    
-                                    var corNova = "#f11f"
-                                    setCor(  corNova  )
-                                   
-                                    var atrdesativar = true
-                                    return desativar[5].desativar = atrdesativar
-                        
-                                }
-                                else if( pontos < 60 )  { 
-                                    var atrdesativar = false
-                                    desativar[5].desativar = atrdesativar
-                                    var corNova = "red"
-                                    setCor(  corNova  )
-                                    var atrdesativarMinus = false
-                                    desativarMinus[5].desativar = atrdesativarMinus
-                                    
-                                    
-                                     
-                                    return aresplus() 
-                                 }
-                                
-
-                            }} 
-                            
-                            
-                        />
-                        <Button
-                            
-                            disabled = { desativarMinus[5].desativar }
-                                title = ' - '
-                                buttonStyle = {styles.buttonminus}
-                                onPress = { () => {
-                                    if ( pontos > 60 || atributos[5].atributo <= 5 ){
-                                        
-                                        var corNova = "#f12f"
-                                        setCor(  corNova  )
-                                        var atrdesativar = true
-                                        return desativarMinus[5].desativar =atrdesativar
-                            
-                                    }
-                                    else { 
-                                        var atrdesativarMinus = false
-                                        desativarMinus[5].desativar =atrdesativarMinus
-                                        var atrdesativar = false 
-                                        desativar[5].desativar = atrdesativar
-
-                                        var corNova = "red"
-                                        setCor(  corNova  )
-                                        
-                                        
-                                         
-                                        return aresMinus() 
-                                     }
-                                    
-    
-                                }}  
-                            
-                            
-                        />
-                    {/* botoes Ares */}
-
-                </View>
-                
-
-
-
-                        
-                {/* lista de alocação de atributos */}
-                <FlatList
-                        
-                        style = {styles.lista}
-                        numColumns = '1'
-                        data = {atributos}
-                        
-                        refreshing = { true }
-                        keyExtractor={item => item.id}
-                        
-                        renderItem={({ item }) => {
-                        return (
-                            // retorna os items do DATA
-                            <View style={styles.item}>
-                                
-                                <Text style={styles.itemText}>{item.name}</Text>
-                        <Text style = {styles.itens}>{ item.atributo } </Text>
-                                
-                                    
-
-                            </View>
-                            
-                            );
-                        }} 
-                 />
-                            
+            < View style = {styles.setAtributos}  >
                     
+                    
+                    <Text style = {{ marginLeft: 107,color: 'green', fontWeight: 'bold', fontSize: 25,}} > Pontos: { pontos } </Text>
+                    
+                    <View style = { styles.viewButtons }>
+                        {/* botoes Arob */}
+                            <Button
+                                
+                                disabled = { desativar[0].desativar }
+
+                                title = ' + '
+                                buttonStyle = {styles.buttonplus}
+                                onPress = { () => {
+                                    if ( pontos >= 60 || atributos[ 0 ].atributo >= 15  ){
+                                        
+                                        var corNova = "#f11f"
+                                        setCor(  corNova  )
+                                    
+                                        var atrdesativar = true
+                                        return desativar[0].desativar = atrdesativar
+                            
+                                    }
+                                    else if( pontos < 60 )  { 
+                                        var atrdesativar = false
+                                        desativar[0].desativar = atrdesativar
+                                        var corNova = "red"
+                                        setCor(  corNova  )
+                                        var atrdesativarMinus = false
+                                        desativarMinus[0].desativar = atrdesativarMinus
+                                        
+                                        
+                                        
+                                        return arobplus() 
+                                    }
+                                    
+
+                                }} 
+                                
+                                
+                            />
+                            <Button
+                                
+                                disabled = { desativarMinus[0].desativar }
+                                    title = ' - '
+                                    buttonStyle = {styles.buttonminus}
+                                    onPress = { () => {
+                                        if ( pontos > 60 || atributos[0].atributo <= 5 ){
+                                            
+                                            var corNova = "#f12f"
+                                            setCor(  corNova  )
+                                            var atrdesativar = true
+                                            return desativarMinus[0].desativar =atrdesativar
+                                
+                                        }
+                                        else { 
+                                            var atrdesativarMinus = false
+                                            desativarMinus[0].desativar =atrdesativarMinus
+                                            var atrdesativar = false 
+                                            desativar[0].desativar = atrdesativar
+
+                                            var corNova = "red"
+                                            setCor(  corNova  )
+                                            
+                                            
+                                            
+                                            return arobMinus() 
+                                        }
+                                        
+        
+                                    }}  
+                                
+                                
+                            />
+                        {/* fim botoes Arob */}
+
+
+                    </View>
+                    
+                    <View style = { styles.viewButtons }>
+                        {/* botoes Aagi */}
+                        <Button
+                                
+                                disabled = { desativar[1].desativar }
+
+                                title = ' + '
+                                buttonStyle = {styles.buttonplus}
+                                onPress = { () => {
+                                    if ( pontos >= 60 || atributos[ 1 ].atributo >= 15  ){
+                                        
+                                        var corNova = "#f11f"
+                                        setCor(  corNova  )
+                                    
+                                        var atrdesativar = true
+                                        return desativar[1].desativar = atrdesativar
+                            
+                                    }
+                                    else if( pontos < 60 )  { 
+                                        var atrdesativar = false
+                                        desativar[1].desativar = atrdesativar
+                                        var corNova = "red"
+                                        setCor(  corNova  )
+                                        var atrdesativarMinus = false
+                                        desativarMinus[1].desativar = atrdesativarMinus
+                                        
+                                        
+                                        
+                                        return aagiplus() 
+                                    }
+                                    
+
+                                }} 
+                                
+                                
+                            />
+                            <Button
+                                
+                                disabled = { desativarMinus[1].desativar }
+                                    title = ' - '
+                                    buttonStyle = {styles.buttonminus}
+                                    onPress = { () => {
+                                        if ( pontos > 60 || atributos[1].atributo <= 5 ){
+                                            
+                                            var corNova = "#f12f"
+                                            setCor(  corNova  )
+                                            var atrdesativar = true
+                                            return desativarMinus[1].desativar =atrdesativar
+                                
+                                        }
+                                        else { 
+                                            var atrdesativarMinus = false
+                                            desativarMinus[1].desativar =atrdesativarMinus
+                                            var atrdesativar = false 
+                                            desativar[1].desativar = atrdesativar
+
+                                            var corNova = "red"
+                                            setCor(  corNova  )
+                                            
+                                            
+                                            
+                                            return aagiMinus() 
+                                        }
+                                        
+        
+                                    }}  
+                                
+                                
+                            />
+                        {/* fim botoes Aagi */}
+
+
+                    </View>
                 
+                    <View style = { styles.viewButtons }>
+                        {/* botoes Aard */}
+                        <Button
+                                
+                                disabled = { desativar[2].desativar }
+
+                                title = ' + '
+                                buttonStyle = {styles.buttonplus}
+                                onPress = { () => {
+                                    if ( pontos >= 60 || atributos[ 2 ].atributo >= 15  ){
+                                        
+                                        var corNova = "#f11f"
+                                        setCor(  corNova  )
+                                    
+                                        var atrdesativar = true
+                                        return desativar[2].desativar = atrdesativar
+                            
+                                    }
+                                    else if( pontos < 60 )  { 
+                                        var atrdesativar = false
+                                        desativar[2].desativar = atrdesativar
+                                        var corNova = "red"
+                                        setCor(  corNova  )
+                                        var atrdesativarMinus = false
+                                        desativarMinus[2].desativar = atrdesativarMinus
+                                        
+                                        
+                                        
+                                        return aardplus() 
+                                    }
+                                    
+
+                                }} 
+                                
+                                
+                            />
+                            <Button
+                                
+                                disabled = { desativarMinus[2].desativar }
+                                    title = ' - '
+                                    buttonStyle = {styles.buttonminus}
+                                    onPress = { () => {
+                                        if ( pontos > 60 || atributos[2].atributo <= 5 ){
+                                            
+                                            var corNova = "#f12f"
+                                            setCor(  corNova  )
+                                            var atrdesativar = true
+                                            return desativarMinus[2].desativar =atrdesativar
+                                
+                                        }
+                                        else { 
+                                            var atrdesativarMinus = false
+                                            desativarMinus[2].desativar =atrdesativarMinus
+                                            var atrdesativar = false 
+                                            desativar[2].desativar = atrdesativar
+
+                                            var corNova = "red"
+                                            setCor(  corNova  )
+                                            
+                                            
+                                            
+                                            return aardMinus() 
+                                        }
+                                        
+        
+                                    }}  
+                                
+                                
+                            />
+                        {/* fim botoes Aard */}
 
 
-          </View>
+                    </View>
+                                
+                    <View style = { styles.viewButtons }>
+                        {/* botoes Avig */}
+                        <Button
+                                
+                                disabled = { desativar[3].desativar }
+
+                                title = ' + '
+                                buttonStyle = {styles.buttonplus}
+                                onPress = { () => {
+                                    if ( pontos >= 60 || atributos[ 3 ].atributo >= 15  ){
+                                        
+                                        var corNova = "#f11f"
+                                        setCor(  corNova  )
+                                    
+                                        var atrdesativar = true
+                                        return desativar[3].desativar = atrdesativar
+                            
+                                    }
+                                    else if( pontos < 60 )  { 
+                                        var atrdesativar = false
+                                        desativar[3].desativar = atrdesativar
+                                        var corNova = "red"
+                                        setCor(  corNova  )
+                                        var atrdesativarMinus = false
+                                        desativarMinus[3].desativar = atrdesativarMinus
+                                        
+                                        
+                                        
+                                        return avigplus() 
+                                    }
+                                    
+
+                                }} 
+                                
+                                
+                            />
+                            <Button
+                                
+                                disabled = { desativarMinus[3].desativar }
+                                    title = ' - '
+                                    buttonStyle = {styles.buttonminus}
+                                    onPress = { () => {
+                                        if ( pontos > 60 || atributos[3].atributo <= 5 ){
+                                            
+                                            var corNova = "#f12f"
+                                            setCor(  corNova  )
+                                            var atrdesativar = true
+                                            return desativarMinus[3].desativar =atrdesativar
+                                
+                                        }
+                                        else { 
+                                            var atrdesativarMinus = false
+                                            desativarMinus[3].desativar =atrdesativarMinus
+                                            var atrdesativar = false 
+                                            desativar[3].desativar = atrdesativar
+
+                                            var corNova = "red"
+                                            setCor(  corNova  )
+                                            
+                                            
+                                            
+                                            return avigMinus() 
+                                        }
+                                        
+        
+                                    }}  
+                                
+                                
+                            />
+                        {/* fim botoes Avig */}
 
 
-      </ScrollView>
+                    </View>
+                    
+                    <View style = { styles.viewButtons }>
+
+                            {/* botoes Asab */}
+                            <Button
+                                
+                                disabled = { desativar[4].desativar }
+
+                                title = ' + '
+                                buttonStyle = {styles.buttonplus}
+                                onPress = { () => {
+                                    if ( pontos >= 60 || atributos[ 4 ].atributo >= 15  ){
+                                        
+                                        var corNova = "#f11f"
+                                        setCor(  corNova  )
+                                    
+                                        var atrdesativar = true
+                                        return desativar[4].desativar = atrdesativar
+                            
+                                    }
+                                    else if( pontos < 60 )  { 
+                                        var atrdesativar = false
+                                        desativar[4].desativar = atrdesativar
+                                        var corNova = "red"
+                                        setCor(  corNova  )
+                                        var atrdesativarMinus = false
+                                        desativarMinus[4].desativar = atrdesativarMinus
+                                        
+                                        
+                                        
+                                        return asabplus() 
+                                    }
+                                    
+
+                                }} 
+                                
+                                
+                            />
+                            <Button
+                                
+                                disabled = { desativarMinus[4].desativar }
+                                    title = ' - '
+                                    buttonStyle = {styles.buttonminus}
+                                    onPress = { () => {
+                                        if ( pontos > 60 || atributos[4].atributo <= 5 ){
+                                            
+                                            var corNova = "#f12f"
+                                            setCor(  corNova  )
+                                            var atrdesativar = true
+                                            return desativarMinus[4].desativar =atrdesativar
+                                
+                                        }
+                                        else { 
+                                            var atrdesativarMinus = false
+                                            desativarMinus[4].desativar =atrdesativarMinus
+                                            var atrdesativar = false 
+                                            desativar[4].desativar = atrdesativar
+
+                                            var corNova = "red"
+                                            setCor(  corNova  )
+                                            
+                                            
+                                            
+                                            return asabMinus() 
+                                        }
+                                        
+        
+                                    }}  
+                                
+                                
+                            />
+                            {/* fim botoes Asab */}
+
+
+                    </View>
+
+                    <View style = { styles.viewButtons }>
+                            {/* botoes Ares */}
+                            <Button
+                                
+                                disabled = { desativar[5].desativar }
+
+                                title = ' + '
+                                buttonStyle = {styles.buttonplus}
+                                onPress = { () => {
+                                    if ( pontos >= 60 || atributos[ 5 ].atributo >= 15  ){
+                                        
+                                        var corNova = "#f11f"
+                                        setCor(  corNova  )
+                                    
+                                        var atrdesativar = true
+                                        return desativar[5].desativar = atrdesativar
+                            
+                                    }
+                                    else if( pontos < 60 )  { 
+                                        var atrdesativar = false
+                                        desativar[5].desativar = atrdesativar
+                                        var corNova = "red"
+                                        setCor(  corNova  )
+                                        var atrdesativarMinus = false
+                                        desativarMinus[5].desativar = atrdesativarMinus
+                                        
+                                        
+                                        
+                                        return aresplus() 
+                                    }
+                                    
+
+                                }} 
+                                
+                                
+                            />
+                            <Button
+                                
+                                disabled = { desativarMinus[5].desativar }
+                                    title = ' - '
+                                    buttonStyle = {styles.buttonminus}
+                                    onPress = { () => {
+                                        if ( pontos > 60 || atributos[5].atributo <= 5 ){
+                                            
+                                            var corNova = "#f12f"
+                                            setCor(  corNova  )
+                                            var atrdesativar = true
+                                            return desativarMinus[5].desativar =atrdesativar
+                                
+                                        }
+                                        else { 
+                                            var atrdesativarMinus = false
+                                            desativarMinus[5].desativar =atrdesativarMinus
+                                            var atrdesativar = false 
+                                            desativar[5].desativar = atrdesativar
+
+                                            var corNova = "red"
+                                            setCor(  corNova  )
+                                            
+                                            
+                                            
+                                            return aresMinus() 
+                                        }
+                                        
+        
+                                    }}  
+                                
+                                
+                            />
+                        {/* fim botoes Ares */}
+
+                    </View>
+                    
+
+
+
+                            
+                    {/* lista de alocação de atributos */}
+                    <FlatList
+                            style = {styles.lista}
+                            numColumns = '1'
+                            data = {atributos}
+                            
+                            refreshing = { true }
+                            keyExtractor={item => item.id}
+                            
+                            renderItem={({ item }) => {
+                            return (
+                                // retorna os items do DATA
+                                <View style={styles.item}>
+                                    
+                                    <Text style={styles.itemText}>{item.name}</Text>
+                                    <Text style = {styles.itens}>{ item.atributo } </Text>
+                                    
+                                        
+
+                                </View>
+                                
+                                );
+                            }} 
+                    />
+                                
+                        
+                    
+
+
+            </View>
+            {/* fim view do atributos */}
+            <Text style = { styles.textoAtributos }> Talentos </Text>
+
+            {/* inicio view dos talentos */}
+            <Modal transparent = {true} visible = { isvisible2 } > 
+            <View style ={ styles.modalinterrogacao }> 
+                <Text style = { styles.Xmodal } onPress = {() => {setIsvisible2(false)}}> X </Text>            
+                <Text style = {styles.textInterrogacao}> vamo desenrolar ae </Text>
+            </View>
+                            
+
+            </Modal>
+            <View style = { styles.setAtributos }>
+
+                <Text style = {styles.textInterrogacao} >selecione o seu talento {"\n" } ( apenas novatos )</Text>
+                <Text style = {styles.escolha}
+                onPress = {() => { 
+                    setIsvisible2( true )
+                 }}
+                > { escolha } </Text>
+
+
+            </View>
+
+
+         </ScrollView>
 
 
 
