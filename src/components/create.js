@@ -341,7 +341,7 @@ export default function create() {
       <ScrollView style = {styles.container}>
           <View style = {styles.viewpontos}>
               <TouchableOpacity
-                style = {{ width: '7%', marginRight: 70,marginTop: -7, justifyContent: 'center'}}
+                style = {{ width: '6%', marginRight: 40,marginTop: -7, justifyContent: 'center'}}
                 onPress = { () => {Alert.alert( ' A soma de todos os atributos deve ser no máximo 60 pontos! Valor máximo do atributo: 15 Valor mínimo do atributo: 5 ' )} }
               >
                   <Image
@@ -352,7 +352,7 @@ export default function create() {
 
               </TouchableOpacity>
           
-             <Text style = {{ marginLeft: 130,color: cor, fontWeight: 'bold', fontSize: 30,}} > pontos: { pontos } </Text>
+              <Text style = {styles.textoAtributos} > Atributos </Text>
 
 
           </View>
@@ -360,7 +360,8 @@ export default function create() {
           
           < View style = {styles.setAtributos}  >
                 
-                <Text style = {styles.textoAtributos} > Atributos </Text>
+                
+                <Text style = {{ marginLeft: 107,color: 'green', fontWeight: 'bold', fontSize: 25,}} > Pontos: { pontos } </Text>
                 <View style = { styles.viewButtons }>
                     {/* botoes Arob */}
                         <Button
