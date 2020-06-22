@@ -811,7 +811,7 @@ export default function create() {
 
 
                         
-                
+                {/* lista de alocação de atributos */}
                 <FlatList
                         
                         style = {styles.lista}
@@ -833,9 +833,9 @@ export default function create() {
 
                             </View>
                             
-                        );
+                            );
                         }} 
-                        />
+                 />
                             
                     
                 
