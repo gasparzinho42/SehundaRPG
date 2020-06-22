@@ -40,8 +40,13 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'lightgreen',
         fontWeight: 'bold',
+<<<<<<< Updated upstream
         marginTop: -100,
         marginBottom: 200
+=======
+        marginTop: -190,
+        marginBottom: 260
+>>>>>>> Stashed changes
 
     },
 
