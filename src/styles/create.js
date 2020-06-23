@@ -6,17 +6,11 @@ import {StyleSheet} from 'react-native'
             backgroundColor: 'indigo'
         },
         setAtributos: {
-<<<<<<< Updated upstream
-            height: 600, 
-
-            padding: 10,
-            marginTop: 5,
-=======
->>>>>>> Stashed changes
             alignSelf: 'center',
             
             padding: 4,
             marginTop: 5,
+            
             
 
             borderRadius: 9,
@@ -24,37 +18,26 @@ import {StyleSheet} from 'react-native'
             height: 600, 
             width: '90%',
             
-            backgroundColor: '#fff',
+            backgroundColor: 'lightgray',
         },
         itemText:{
 
-            color: 'green',
-            fontWeight: 'normal',
-            fontSize: 18,
+            color: 'darkgreen',
+            fontWeight: 'bold',
+            fontSize: 17,
             
 
         },
         item: {
 
             alignSelf: 'center',
-<<<<<<< Updated upstream
-            marginBottom: 40,
-=======
             marginBottom: 10,
-            marginTop: 20 
->>>>>>> Stashed changes
+            marginTop: 20 ,
         },
         itens: {
 
             alignSelf: 'center',
-<<<<<<< Updated upstream
-            marginTop: 30
-=======
-            marginTop: 5,
-            fontSize: 16,
-            color: 'black',
-            fontWeight: 'bold'
->>>>>>> Stashed changes
+            marginTop: 5
         },
         // button: {
             
@@ -72,27 +55,21 @@ import {StyleSheet} from 'react-native'
         buttonplus: {
             alignSelf: 'center',
 
-            marginRight: 10,
+            marginRight: 20,
             
            
 
             borderRadius: 5,
 
-            height: 23,
-            width: 30,
+            height: 25,
+            width: 35,
 
-<<<<<<< Updated upstream
-            borderRadius: 2,
-
-            marginRight: -130,
-            marginVertical: -40,
-            marginTop: -70,
-=======
             
 
-            backgroundColor: 'green',
+            backgroundColor: 'darkgreen',
+            borderWidth: 2,
+            borderColor: 'indigo'
            
->>>>>>> Stashed changes
 
         },
         buttonminus: {
@@ -102,49 +79,32 @@ import {StyleSheet} from 'react-native'
             borderRadius: 5,
             
 
-            marginLeft: 10,
+            marginLeft: 20,
            
-            height: 23,
-            width: 30,
-<<<<<<< Updated upstream
-            height: 20,
-            marginLeft: -130,
-            marginBottom:-23,
-            marginTop: 10,
-            borderRadius: 2,
-            // marginLeft: -130,
-            // marginVertical: -40,
-=======
+            height: 25,
+            width: 35,
 
           
->>>>>>> Stashed changes
 
-            backgroundColor: 'green'
+            backgroundColor: 'darkgreen',
+            borderWidth: 2,
+            borderColor: 'indigo'
 
             
         },
         lista: {
-<<<<<<< Updated upstream
-            padding: 30,
-            borderStyle: 'dotted',
+            padding: 0,
+            borderStyle: 'solid',
             borderWidth: 1, 
             borderRadius: 9 ,
-            width: 230,
-            alignSelf: 'center'
-=======
-            // padding: 30,
-            borderStyle: 'solid',
-            borderWidth: 2, 
-            borderRadius: 9 ,
-            borderColor: 'black',
 
             height: '90%',
-            width: 230,
+            width: 200,
 
             alignSelf: 'center',
             position: 'absolute',
             
-            marginTop: 40
+            marginTop: 50
             
 
 
@@ -154,8 +114,8 @@ import {StyleSheet} from 'react-native'
 
             justifyContent: "space-between",
             flexDirection: "row-reverse",
-            marginBottom:39,
-            marginTop:20,
+            marginBottom:-8,
+            marginTop:60,
             
         },
         viewpontos: {
@@ -165,22 +125,187 @@ import {StyleSheet} from 'react-native'
             width: '100%'
         },
         interrogacao: {
-            height:30,
-            width:30,
+            height:27.5,
+            width:27.5,
             
             marginTop:10,
             marginRight: 70
->>>>>>> Stashed changes
 
 
         },
         textoAtributos: {
-            alignSelf: 'center',
-            color: 'green',
+            marginLeft: 125,
+            color: 'gold',
             fontWeight: 'bold',
-            fontSize: 22,
-            marginBottom: 2,
+            fontSize: 32,
+            marginBottom: 2
+        },
+        modalinterrogacao: {
+            alignSelf: 'center' ,
+            marginVertical: '50%',
+            textAlign: 'center',
+
+            height: '50%',
+            width: '65%',
+
+            padding: 9,
+
+            backgroundColor: 'indigo',
+            borderRadius: 5,
+        },
+        textInterrogacao: {
+            color: 'gold',
+            fontWeight: 'bold',
+            fontSize: 20,
+            textAlign: 'center'
             
+        },
+        listaInt: {
+            padding: 0,
+        
+            height: '90%',
+            width: 200,
+
+            alignSelf: 'center',
+             
+            marginTop: 30
+
+        },
+        Xmodal: {
+            color: 'gold',
+            fontWeight: 'bold',
+            fontSize: 15,
+            alignSelf: 'flex-end',
+            marginBottom: 30,
+            borderColor: 'darkgoldenrod',
+            borderWidth: 1,
+            backgroundColor: 'indigo'
+
+        },
+        Selectmodal: {
+            color: 'gold',
+            fontWeight: 'bold',
+            fontSize: 20,
+            alignSelf: 'center',
+            marginBottom: 20,
+            marginTop: 45,
+            borderColor: 'darkgoldenrod',
+            borderWidth: 1,
+            backgroundColor: 'indigo'
+            
+
+        },
+        escolha: {
+            alignSelf:'center',
+            textAlign: 'center',
+            textAlignVertical: 'center',
+
+            color:'lightgray',
+
+            height: '25%' ,
+            width: '90%' ,
+            fontSize: 17,
+            fontWeight: 'bold',
+
+            marginTop:20,
+            borderWidth: 2,
+            borderColor: 'indigo',
+            borderRadius: 9 ,
+            backgroundColor:'darkgreen'
+            
+        },
+         modalTalentos: {
+            alignSelf: 'center' ,
+            marginVertical: '15%',
+            textAlign: 'center',
+
+            height: '90%',
+            width: '80%',
+
+            padding: 5,
+
+            backgroundColor: 'indigo',
+            borderRadius: 5,
+            borderWidth: 2,
+            borderColor: 'darkgoldenrod',
+            borderRadius: 9
+        },
+        textTalentos: {
+            marginTop: 20,
+            
+            textAlign: 'center',
+            textAlignVertical:'center',
+            width: '99%' , 
+            height: 35,
+            fontSize: 15,
+            color: 'gold',
+            borderWidth: 2,
+            borderRadius: 9
+        },
+        escolherText: {
+            color: 'gold',
+            fontSize: 20,
+            fontWeight: 'bold',
+            marginBottom: 10,
+            alignSelf: 'center'
+
+        },
+    
+        modalDesc: {
+            alignSelf: 'center' ,
+            marginVertical: '30%',
+            textAlign: 'center',
+
+            height: '70%',
+            width: '65%',
+
+            padding: 5,
+
+            backgroundColor: 'darkslateblue',
+            borderRadius: 5,
+            borderColor: 'darkgoldenrod',
+            borderWidth: 2,
+            
+        },
+        textDesc: {
+            textAlign: 'center',
+            marginBottom:2,
+            fontSize: 15,
+            color: 'gold',
+
+        },
+        textDescTitle: {
+            textAlign: 'center',
+            fontWeight: 'bold',
+            marginBottom:20,
+            marginTop: -30,
+            fontSize: 22,
+            color: 'gold',
+
+        },
+         settalentos: {
+            alignSelf: 'center',
+            
+            padding: 4,
+            marginTop: 5,
+            marginBottom: 50,
+            
+            
+
+            borderRadius: 9,
+
+            height: 150, 
+            width: '90%',
+            
+            backgroundColor: 'lightgray',
+        },
+        textViewTalentos: {
+            color: 'darkgreen',
+            fontWeight: 'bold',
+            fontSize: 20,
+            textAlign: 'center'
+            
+
         },
 
 })

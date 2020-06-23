@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#778899',
+        backgroundColor: 'darkslateblue',
 
     },
     modal: {
@@ -40,13 +40,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'lightgreen',
         fontWeight: 'bold',
-<<<<<<< Updated upstream
-        marginTop: -100,
-        marginBottom: 200
-=======
         marginTop: -190,
         marginBottom: 260
->>>>>>> Stashed changes
 
     },
 
