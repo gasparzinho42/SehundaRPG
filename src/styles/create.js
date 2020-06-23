@@ -182,7 +182,7 @@ import {StyleSheet} from 'react-native'
 
             color:'indigo',
 
-            height: '5%' ,
+            height: '25%' ,
             width: '90%' ,
 
             marginTop:10,
@@ -190,6 +190,92 @@ import {StyleSheet} from 'react-native'
             borderColor: 'indigo',
             borderRadius: 9 ,
             
+        },
+         modalTalentos: {
+            alignSelf: 'center' ,
+            marginVertical: '15%',
+            textAlign: 'center',
+
+            height: '90%',
+            width: '80%',
+
+            padding: 5,
+
+            backgroundColor: 'indigo',
+            borderRadius: 5,
+        },
+        textTalentos: {
+            marginTop: 20,
+            
+            textAlign: 'center',
+            textAlignVertical:'center',
+            width: '99%' , 
+            height: 35,
+            fontSize: 15,
+            color: 'gold',
+            borderWidth: 1,
+            borderRadius: 9
+        },
+        escolherText: {
+            color: 'gold',
+            fontSize: 20,
+            fontWeight: 'bold',
+            marginBottom: 10,
+            alignSelf: 'center'
+
+        },
+    
+        modalDesc: {
+            alignSelf: 'center' ,
+            marginVertical: '30%',
+            textAlign: 'center',
+
+            height: '70%',
+            width: '65%',
+
+            padding: 9,
+
+            backgroundColor: 'darkslateblue',
+            borderRadius: 5,
+        },
+        textDesc: {
+            textAlign: 'center',
+            marginBottom:2,
+            fontSize: 15,
+            color: 'gold',
+
+        },
+        textDescTitle: {
+            textAlign: 'center',
+            marginBottom:2,
+            marginTop: -10,
+            fontSize: 22,
+            color: 'gold',
+
+        },
+         settalentos: {
+            alignSelf: 'center',
+            
+            padding: 4,
+            marginTop: 5,
+            marginBottom: 50,
+            
+            
+
+            borderRadius: 9,
+
+            height: 150, 
+            width: '90%',
+            
+            backgroundColor: '#fff',
+        },
+        textViewTalentos: {
+            color: 'green',
+            fontWeight: 'bold',
+            fontSize: 20,
+            textAlign: 'center'
+            
+
         },
 
 })
