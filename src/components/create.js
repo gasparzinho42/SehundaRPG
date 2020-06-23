@@ -450,9 +450,7 @@ export default function create() {
           <Modal visible = { isvisible1 }  animationType = 'slide' transparent = {true} >
 
               <View style = {styles.modalinterrogacao} >
-                  <Text style = {styles.Xmodal}
-                   onPress = {() => { setIsvisible1( false ) }}
-                   > x </Text>
+                  
 
                 <Text style = {styles.textInterrogacao} > A soma de todos os atributos deve ser no máximo 60 pontos! </Text>
                 <FlatList
@@ -464,7 +462,9 @@ export default function create() {
                         <View > 
                             <Text style = { styles.textInterrogacao }>• Valor máximo do atributo: { item[0].vm } </Text>
                             <Text style = { styles.textInterrogacao } >• Valor mínimo do atributo: { item[0].vmn } </Text>
-
+                            <Text style = {styles.OKmodal}
+                            onPress = {() => { setIsvisible1( false ) }}
+                            > OK! </Text>
                         </View>
                         
                     }
@@ -497,7 +497,7 @@ export default function create() {
             < View style = {styles.setAtributos}  >
                     
                     
-                    <Text style = {{ marginLeft: 107,color: 'darkgreen', fontWeight: 'bold', fontSize: 25,}} > Pontos: { pontos } </Text> 
+                    <Text style = {{ alignSelf: 'center',color: 'darkgreen', fontWeight: 'bold', fontSize: 25,}} > Pontos: { pontos } </Text> 
                     {/* cada view contém dois botões, um para adicionar outro para retirar os pontos dos respectivos atributos */}
                     <View style = { styles.viewButtons }>
                         {/* botoes Arob */}
@@ -972,7 +972,7 @@ export default function create() {
             {/* fim view do atributos */}
             
             {/* esse é o modal que lista os talentos */}
-            <Text style = { styles.textoAtributos }> Talentos </Text>
+            <Text style = { styles.textoAtributos }>  Talentos </Text>
            
             <Modal transparent = {true} visible = { isvisible2 } > 
                 

@@ -129,12 +129,13 @@ import {StyleSheet} from 'react-native'
             width:27.5,
             
             marginTop:10,
-            marginRight: 70
+            marginRight: 70,
+            marginLeft: 1
 
 
         },
         textoAtributos: {
-            marginLeft: 125,
+            marginLeft: 100,
             color: 'gold',
             fontWeight: 'bold',
             fontSize: 32,
@@ -157,7 +158,8 @@ import {StyleSheet} from 'react-native'
             color: 'gold',
             fontWeight: 'bold',
             fontSize: 20,
-            textAlign: 'center'
+            textAlign: 'center',
+            marginTop: 10
             
         },
         listaInt: {
@@ -177,6 +179,18 @@ import {StyleSheet} from 'react-native'
             fontSize: 15,
             alignSelf: 'flex-end',
             marginBottom: 30,
+            borderColor: 'darkgoldenrod',
+            borderWidth: 1,
+            backgroundColor: 'indigo'
+
+        },
+        OKmodal: {
+            color: 'gold',
+            fontWeight: 'bold',
+            fontSize: 20,
+            alignSelf: 'center',
+            marginBottom: 20,
+            marginTop: 45,
             borderColor: 'darkgoldenrod',
             borderWidth: 1,
             backgroundColor: 'indigo'
