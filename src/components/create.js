@@ -1019,8 +1019,11 @@ export default function create() {
                     <Modal visible=  { isvisible3} transparent = {true}> 
                             <View style = {styles.modalDesc}>
                                     <Text style = { styles.Xmodal } onPress = {() => {setIsvisible3(false)}}> X </Text> 
-                                    <Text style = {styles.textDescTitle}> { talento[indexlista].name } </Text> {/* aqui é redenderizado o nome do talento. É passado  a váriavel indexLista pra mostrar o talento selecionado */}
-                                <Text style = {styles.textDesc}> {talento[indexlista].Descricao} </Text> {/* com o mesmo método de cima é renderizado a descrição do talento */}
+                                    {/* aqui é redenderizado o nome do talento. É passado  a váriavel indexLista pra mostrar o talento selecionado */}
+                                    <Text style = {styles.textDescTitle}> { talento[indexlista].name } </Text> 
+                                    {/* com o mesmo método de cima é renderizado a descrição do talento */}   
+                                    <Text style = {styles.textDesc}> {talento[indexlista].Descricao} </Text>
+                                    
                             </View>             
                     </Modal> 
                     {/* fim do modal das descrições */}
