@@ -1,5 +1,7 @@
+
 import React, { useState, useEffect,  } from 'react';
 import { View, Text, TextInput, FlatList, TouchableOpacity, Alert, Image, ScrollView, Modal,   } from 'react-native';
+
 import styles from '../styles/create'
 import {Button, } from 'react-native-elements'
 
@@ -20,6 +22,7 @@ export default function create() {
     const [ escudo, setEscudo ] = useState( 0 )
 
     const [escolha, setEscolha] = useState( " escolha seu talento " )
+    
     
     
 
@@ -47,6 +50,7 @@ export default function create() {
     
 
     const [ talento, setTalento ] = useState([
+
         {id: 0, name: 'Batedor', Descricao: "Novato:\n"
             + "\n"
             + "Cria oportunidades mais facilmente (-1)\n"
@@ -418,6 +422,7 @@ export default function create() {
         {desativar: false},
 
     ])
+
     const [desativarMinus, setDesativarMinus] = useState([
         {desativar: false},
         {desativar: false},
@@ -429,6 +434,7 @@ export default function create() {
     ])
     const [pontos, setPontos] = useState( 30 )
     const [ cor, setCor ] = useState( "red" )
+
     // meios para deixar os modals visíveis
     const [isvisible1, setIsvisible1] = useState(false)
     const [isvisible2, setIsvisible2] = useState(false)
@@ -442,11 +448,13 @@ export default function create() {
     
     ]
 
+
     
   return (
 
     
       <ScrollView style = {styles.container}>
+
           <Modal visible = { isvisible1 }  animationType = 'slide' transparent = {true} >
 
               <View style = {styles.modalinterrogacao} >
@@ -469,6 +477,7 @@ export default function create() {
                         
                     }
                 />
+
 
               </View>
               
@@ -870,12 +879,12 @@ export default function create() {
 
                     </View>
 
+
                     <View style = { styles.viewButtons }>
                             {/* botoes Ares */}
                             <Button
                                 
                                 disabled = { desativar[5].desativar }
-
                                 title = ' + '
                                 buttonStyle = {styles.buttonplus}
                                 onPress = { () => {

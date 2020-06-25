@@ -18,7 +18,9 @@ import {StyleSheet} from 'react-native'
             height: 600, 
             width: '90%',
             
+
             backgroundColor: 'lightgray',
+
         },
         itemText:{
 
@@ -55,10 +57,10 @@ import {StyleSheet} from 'react-native'
         buttonplus: {
             alignSelf: 'center',
 
+
             marginRight: 20,
             
            
-
             borderRadius: 5,
 
             height: 25,
@@ -66,15 +68,18 @@ import {StyleSheet} from 'react-native'
 
             
 
+
             backgroundColor: 'darkgreen',
             borderWidth: 2,
             borderColor: 'indigo'
+
            
 
         },
         buttonminus: {
             
             alignSelf: 'center',
+
 
             borderRadius: 5,
             
@@ -89,6 +94,7 @@ import {StyleSheet} from 'react-native'
             backgroundColor: 'darkgreen',
             borderWidth: 2,
             borderColor: 'indigo'
+
 
             
         },
@@ -106,6 +112,7 @@ import {StyleSheet} from 'react-native'
             
             marginTop: 50
             
+
 
 
 
@@ -131,8 +138,7 @@ import {StyleSheet} from 'react-native'
             marginTop:10,
             marginRight: 70,
             marginLeft: 1
-
-
+          
         },
         textoAtributos: {
             marginLeft: 100,
@@ -264,7 +270,6 @@ import {StyleSheet} from 'react-native'
             alignSelf: 'center'
 
         },
-    
         modalDesc: {
             alignSelf: 'center' ,
             marginVertical: '30%',
@@ -320,6 +325,9 @@ import {StyleSheet} from 'react-native'
             textAlign: 'center'
             
 
+
+
+     
         },
 
 })
