@@ -5,6 +5,7 @@ import CheckBox from '@react-native-community/checkbox';
 
 import styles from '../styles/ficha';
 import { color } from 'react-native-reanimated';
+import newuser from './newuser';
 
 
    
@@ -13,7 +14,7 @@ export default function ficha() {
 
 
     const [ estresse, setEstresse ] = useState(0);
-
+   
     const [data, setData] = useState([
 
         {id: "00", name: "vigor",valor_atual: "10", valor_total: "/10"},
@@ -80,7 +81,7 @@ export default function ficha() {
                 <View className = "field" style = {styles.field}>
         
                     <Text style = {styles.label}>Nome: </Text>
-                    <TextInput style = {styles.input_nome}  placeholder = "nome"/>
+                    <TextInput style = {styles.input_nome}  placeholder = "nome" />
             
                 </View>
                 {/* fim campo nome */}
@@ -121,7 +122,7 @@ export default function ficha() {
                 <View className = "portrait" style = {styles.portrait}>
                     <Image
                     style = {styles.image}
-                    source={require('../Assets/human.png')}
+                    source={require('../Assets/armor.png')}
         
                     />
                 </View>

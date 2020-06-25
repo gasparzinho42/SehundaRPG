@@ -1,15 +1,19 @@
 
 import React, { useState, useEffect,  } from 'react';
-import { View, Text, TextInput, FlatList, TouchableOpacity, Alert, Image, ScrollView, Modal,   } from 'react-native';
+import { View, Text, TextInput, FlatList, TouchableOpacity, Alert, Image, ScrollView, Modal,    } from 'react-native';
 
 import styles from '../styles/create'
 import {Button, } from 'react-native-elements'
-
+import newuser  from './newuser'
+import app from './index'
 
 
 // import { Container } from './styles';
 
-export default function create() {
+export default function create({ navigation }) {
+    
+    
+    
     const [ Arob, setArob ] = useState( 5 )
     const [ Aagi, setAagi ] = useState( 5 )
     const [ Aard, setAard ] = useState( 5 )
@@ -22,8 +26,13 @@ export default function create() {
     const [ escudo, setEscudo ] = useState( 0 )
 
     const [escolha, setEscolha] = useState( " escolha seu talento " )
+    const [nome,setNome] = useState('')
+    const [crenca,setCrenca] = useState('')
+    const [instinto,setInstinto] = useState('')
     
-    
+    const [bio,setBio] = useState([
+        {nome: nome, crenca: crenca, instinto: instinto}
+    ])
     
 
     const [ atributos, setAtributos ] = useState([
@@ -447,13 +456,32 @@ export default function create() {
         { Key: '00', vm: 15, vmn: 5 },
     
     ]
-
-
     
+    
+    
+    
+    
+    
+
+
+   //início do return 
   return (
 
+        
     
       <ScrollView style = {styles.container}>
+          {/* início da view da Bio */}
+          <Text style = { styles.title }>  Bio </Text>
+          <View style= {styles.ViewBio} >
+              <Text style = {styles.labelBio} > Nome </Text>
+              <TextInput style = {styles.inputA} placeholder = 'nome' onChange = {nome => {setNome( nome )}} />
+              <Text style = {styles.labelBio}  > Crença </Text>
+              <TextInput style = {styles.inputB} placeholder = 'crença' multiline = {true} numberOfLines = {3} onChange = {crenca => {setCrenca( crenca )}} />
+              <Text style = {styles.labelBio} > Instinto </Text>
+              <TextInput style = {styles.inputC} placeholder = 'instinto' onChange = {inst => {setInstinto( inst )}} />
+
+          </View>
+          {/* fim view da Bio */}
 
           <Modal visible = { isvisible1 }  animationType = 'slide' transparent = {true} >
 
@@ -502,8 +530,8 @@ export default function create() {
             </View>
             {/* fim atributos e interrogação */}
           
-          
-            < View style = {styles.setAtributos}  >
+            {/* início view atributos */}
+            < View style = {styles.viewAtributos}  >
                     
                     
                     <Text style = {{ alignSelf: 'center',color: 'darkgreen', fontWeight: 'bold', fontSize: 25,}} > Pontos: { pontos } </Text> 
@@ -981,7 +1009,7 @@ export default function create() {
             {/* fim view do atributos */}
             
             {/* esse é o modal que lista os talentos */}
-            <Text style = { styles.textoAtributos }>  Talentos </Text>
+            <Text style = { styles.title }>  Talentos </Text>
            
             <Modal transparent = {true} visible = { isvisible2 } > 
                 
@@ -1053,6 +1081,19 @@ export default function create() {
 
             </View>
             {/* fim view dos talentos */}
+            <Button 
+            
+            title = ' Pronto! '
+            buttonStyle = {{backgroundColor: 'darkslateblue', borderWidth: 1, borderColor: 'gold', marginBottom: 10, width: '99%', alignSelf: 'center' }}
+            onPress = {function a() {
+                const user = new newuser()
+                user.setAtr(atributos)
+                user.setDta(data)
+                user.setTlt(escolha)
+                user.setbio(bio)
+                navigation.navigate('personagem')
+            }}
+            />
 
 
 

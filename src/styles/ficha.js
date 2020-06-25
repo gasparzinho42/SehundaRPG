@@ -169,10 +169,10 @@ const styles = StyleSheet.create({
     portrait:{
       position: "absolute",
       
-      marginLeft: "60%",
+      marginLeft: "65%",
       
       width: "50%",
-      height: 210,
+      height: '100%',
       backgroundColor: "white",
       borderRadius: 9,
   

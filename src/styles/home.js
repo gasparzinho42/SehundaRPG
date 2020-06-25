@@ -1,49 +1,43 @@
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'darkslateblue',
-
-    },
-    modal: {
-        flex:1,
-        backgroundColor: 'black'
-
-       
-    },
+  
+   
     addpersonagem: {
-        textAlignVertical: 'center',
-        textAlign: 'center',
-        color: '#90EE90',
+       
+        
+        color: 'green',
         fontWeight:'normal' ,
         
-        flex: 1,
-        fontSize: 300
+        
+        
+        fontSize: 50
         
     },
     button: {
+       
+        alignSelf: 'center',
+        height: 80,
+        width: '98%',
+        textAlign: 'center',
         alignItems: 'center',
-        alignSelf: 'center' ,
+        backgroundColor: 'white',
+        marginTop: 10,
         
-        flex: 1,
-        padding: 5.3,
         
         
         
 
         borderRadius: 5
     },
-    textAddPersonagem: {
-        textAlign: 'center',
-        textAlignVertical:'center',
-        fontSize: 20,
-        color: 'lightgreen',
-        fontWeight: 'bold',
-        marginTop: -190,
-        marginBottom: 260
+  
+    create: {
+        backgroundColor: 'darkslateblue',
+        justifyContent: 'space-between',
+        flex: 1,
+        width: '100%'
 
-    },
+    }
 
 
 

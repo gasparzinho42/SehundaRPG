@@ -5,7 +5,7 @@ import {StyleSheet} from 'react-native'
             flex:1,
             backgroundColor: 'indigo'
         },
-        setAtributos: {
+        viewAtributos: {
             alignSelf: 'center',
             
             padding: 4,
@@ -19,7 +19,7 @@ import {StyleSheet} from 'react-native'
             width: '90%',
             
 
-            backgroundColor: 'lightgray',
+            backgroundColor: 'lavender',
 
         },
         itemText:{
@@ -141,7 +141,15 @@ import {StyleSheet} from 'react-native'
           
         },
         textoAtributos: {
-            marginLeft: 100,
+            marginLeft: 120,
+            color: 'gold',
+            fontWeight: 'bold',
+            fontSize: 32,
+            marginBottom: 2
+        },
+        title: {
+            alignSelf: 'center',
+            
             color: 'gold',
             fontWeight: 'bold',
             fontSize: 32,
@@ -207,8 +215,9 @@ import {StyleSheet} from 'react-native'
             fontWeight: 'bold',
             fontSize: 20,
             alignSelf: 'center',
-            marginBottom: 20,
-            marginTop: 45,
+
+            marginTop: 30,
+            
             borderColor: 'darkgoldenrod',
             borderWidth: 1,
             backgroundColor: 'indigo'
@@ -220,7 +229,7 @@ import {StyleSheet} from 'react-native'
             textAlign: 'center',
             textAlignVertical: 'center',
 
-            color:'lightgray',
+            color:'white',
 
             height: '25%' ,
             width: '90%' ,
@@ -275,7 +284,7 @@ import {StyleSheet} from 'react-native'
             marginVertical: '30%',
             textAlign: 'center',
 
-            height: '70%',
+            height: '78%',
             width: '65%',
 
             padding: 5,
@@ -316,7 +325,7 @@ import {StyleSheet} from 'react-native'
             height: 150, 
             width: '90%',
             
-            backgroundColor: 'lightgray',
+            backgroundColor: 'lavender',
         },
         textViewTalentos: {
             color: 'darkgreen',
@@ -328,6 +337,56 @@ import {StyleSheet} from 'react-native'
 
 
      
+        },
+        inputA: {
+            height: 40,
+            width: '90%',
+            borderWidth: 1,
+            borderRadius: 9,
+            padding: 10,
+            marginBottom:2
+
+        },
+        inputB: {
+            textAlign: 'center',
+            height: 80,
+            width: '90%',
+            borderWidth: 1,
+            borderRadius: 9,
+            padding: 10,
+            marginBottom:2
+
+        },
+        inputC: {
+            textAlign: 'center',
+            height: 80,
+            width: '90%',
+            borderWidth: 1,
+            borderRadius: 9,
+            padding: 10,
+            marginBottom:2
+
+        },
+        labelBio:{
+            padding: 10,
+            fontSize: 15,
+            fontWeight: 'bold',
+            color: 'green',
+            
+
+
+
+        },
+        ViewBio: {
+            alignItems: 'center',
+            height: 350 ,
+            width: '90%',
+            alignSelf: 'center',
+            backgroundColor: 'lavender',
+            marginBottom: 10,
+
+            
+            borderRadius: 9
         },
 
 })
