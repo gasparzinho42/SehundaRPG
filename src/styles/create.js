@@ -18,11 +18,13 @@ import {StyleSheet} from 'react-native'
             height: 600, 
             width: '90%',
             
-            backgroundColor: '#fff',
+
+            backgroundColor: 'lightgray',
+
         },
         itemText:{
 
-            color: 'green',
+            color: 'darkgreen',
             fontWeight: 'bold',
             fontSize: 17,
             
@@ -55,10 +57,10 @@ import {StyleSheet} from 'react-native'
         buttonplus: {
             alignSelf: 'center',
 
+
             marginRight: 20,
             
            
-
             borderRadius: 5,
 
             height: 25,
@@ -66,13 +68,18 @@ import {StyleSheet} from 'react-native'
 
             
 
-            backgroundColor: 'green',
+
+            backgroundColor: 'darkgreen',
+            borderWidth: 2,
+            borderColor: 'indigo'
+
            
 
         },
         buttonminus: {
             
             alignSelf: 'center',
+
 
             borderRadius: 5,
             
@@ -84,7 +91,10 @@ import {StyleSheet} from 'react-native'
 
           
 
-            backgroundColor: 'green'
+            backgroundColor: 'darkgreen',
+            borderWidth: 2,
+            borderColor: 'indigo'
+
 
             
         },
@@ -102,6 +112,7 @@ import {StyleSheet} from 'react-native'
             
             marginTop: 50
             
+
 
 
 
@@ -125,12 +136,12 @@ import {StyleSheet} from 'react-native'
             width:27.5,
             
             marginTop:10,
-            marginRight: 70
-
-
+            marginRight: 70,
+            marginLeft: 1
+          
         },
         textoAtributos: {
-            marginLeft: 125,
+            marginLeft: 100,
             color: 'gold',
             fontWeight: 'bold',
             fontSize: 32,
@@ -153,7 +164,8 @@ import {StyleSheet} from 'react-native'
             color: 'gold',
             fontWeight: 'bold',
             fontSize: 20,
-            textAlign: 'center'
+            textAlign: 'center',
+            marginTop: 10
             
         },
         listaInt: {
@@ -170,9 +182,37 @@ import {StyleSheet} from 'react-native'
         Xmodal: {
             color: 'gold',
             fontWeight: 'bold',
-            fontSize: 20,
+            fontSize: 15,
             alignSelf: 'flex-end',
-            marginBottom: 30
+            marginBottom: 30,
+            borderColor: 'darkgoldenrod',
+            borderWidth: 1,
+            backgroundColor: 'indigo'
+
+        },
+        OKmodal: {
+            color: 'gold',
+            fontWeight: 'bold',
+            fontSize: 20,
+            alignSelf: 'center',
+            marginBottom: 20,
+            marginTop: 45,
+            borderColor: 'darkgoldenrod',
+            borderWidth: 1,
+            backgroundColor: 'indigo'
+
+        },
+        Selectmodal: {
+            color: 'gold',
+            fontWeight: 'bold',
+            fontSize: 20,
+            alignSelf: 'center',
+            marginBottom: 20,
+            marginTop: 45,
+            borderColor: 'darkgoldenrod',
+            borderWidth: 1,
+            backgroundColor: 'indigo'
+            
 
         },
         escolha: {
@@ -180,15 +220,18 @@ import {StyleSheet} from 'react-native'
             textAlign: 'center',
             textAlignVertical: 'center',
 
-            color:'indigo',
+            color:'lightgray',
 
             height: '25%' ,
             width: '90%' ,
+            fontSize: 17,
+            fontWeight: 'bold',
 
-            marginTop:10,
-            borderWidth: 1,
+            marginTop:20,
+            borderWidth: 2,
             borderColor: 'indigo',
             borderRadius: 9 ,
+            backgroundColor:'darkgreen'
             
         },
          modalTalentos: {
@@ -203,6 +246,9 @@ import {StyleSheet} from 'react-native'
 
             backgroundColor: 'indigo',
             borderRadius: 5,
+            borderWidth: 2,
+            borderColor: 'darkgoldenrod',
+            borderRadius: 9
         },
         textTalentos: {
             marginTop: 20,
@@ -213,7 +259,7 @@ import {StyleSheet} from 'react-native'
             height: 35,
             fontSize: 15,
             color: 'gold',
-            borderWidth: 1,
+            borderWidth: 2,
             borderRadius: 9
         },
         escolherText: {
@@ -224,7 +270,6 @@ import {StyleSheet} from 'react-native'
             alignSelf: 'center'
 
         },
-    
         modalDesc: {
             alignSelf: 'center' ,
             marginVertical: '30%',
@@ -233,10 +278,13 @@ import {StyleSheet} from 'react-native'
             height: '70%',
             width: '65%',
 
-            padding: 9,
+            padding: 5,
 
             backgroundColor: 'darkslateblue',
             borderRadius: 5,
+            borderColor: 'darkgoldenrod',
+            borderWidth: 2,
+            
         },
         textDesc: {
             textAlign: 'center',
@@ -247,8 +295,9 @@ import {StyleSheet} from 'react-native'
         },
         textDescTitle: {
             textAlign: 'center',
-            marginBottom:2,
-            marginTop: -10,
+            fontWeight: 'bold',
+            marginBottom:20,
+            marginTop: -30,
             fontSize: 22,
             color: 'gold',
 
@@ -267,15 +316,18 @@ import {StyleSheet} from 'react-native'
             height: 150, 
             width: '90%',
             
-            backgroundColor: '#fff',
+            backgroundColor: 'lightgray',
         },
         textViewTalentos: {
-            color: 'green',
+            color: 'darkgreen',
             fontWeight: 'bold',
             fontSize: 20,
             textAlign: 'center'
             
 
+
+
+     
         },
 
 })

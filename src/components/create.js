@@ -1,5 +1,7 @@
+
 import React, { useState, useEffect,  } from 'react';
 import { View, Text, TextInput, FlatList, TouchableOpacity, Alert, Image, ScrollView, Modal,   } from 'react-native';
+
 import styles from '../styles/create'
 import {Button, } from 'react-native-elements'
 
@@ -20,6 +22,7 @@ export default function create() {
     const [ escudo, setEscudo ] = useState( 0 )
 
     const [escolha, setEscolha] = useState( " escolha seu talento " )
+    
     
     
 
@@ -47,6 +50,7 @@ export default function create() {
     
 
     const [ talento, setTalento ] = useState([
+
         {id: 0, name: 'Batedor', Descricao: "Novato:\n"
             + "\n"
             + "Cria oportunidades mais facilmente (-1)\n"
@@ -418,6 +422,7 @@ export default function create() {
         {desativar: false},
 
     ])
+
     const [desativarMinus, setDesativarMinus] = useState([
         {desativar: false},
         {desativar: false},
@@ -429,6 +434,7 @@ export default function create() {
     ])
     const [pontos, setPontos] = useState( 30 )
     const [ cor, setCor ] = useState( "red" )
+
     // meios para deixar os modals visíveis
     const [isvisible1, setIsvisible1] = useState(false)
     const [isvisible2, setIsvisible2] = useState(false)
@@ -442,17 +448,17 @@ export default function create() {
     
     ]
 
+
     
   return (
 
     
       <ScrollView style = {styles.container}>
+
           <Modal visible = { isvisible1 }  animationType = 'slide' transparent = {true} >
 
               <View style = {styles.modalinterrogacao} >
-                  <Text style = {styles.Xmodal}
-                   onPress = {() => { setIsvisible1( false ) }}
-                   > x </Text>
+                  
 
                 <Text style = {styles.textInterrogacao} > A soma de todos os atributos deve ser no máximo 60 pontos! </Text>
                 <FlatList
@@ -462,13 +468,16 @@ export default function create() {
                     keyExtractor = {item => item.Key}
                     renderItem = { ({item}) => 
                         <View > 
-                            <Text style = { styles.textInterrogacao }>. Valor Maximo do atributo: { item[0].vm } </Text>
-                            <Text style = { styles.textInterrogacao } >. Valor mínimo do atributo: { item[0].vmn } </Text>
-
+                            <Text style = { styles.textInterrogacao }>• Valor máximo do atributo: { item[0].vm } </Text>
+                            <Text style = { styles.textInterrogacao } >• Valor mínimo do atributo: { item[0].vmn } </Text>
+                            <Text style = {styles.OKmodal}
+                            onPress = {() => { setIsvisible1( false ) }}
+                            > OK! </Text>
                         </View>
                         
                     }
                 />
+
 
               </View>
               
@@ -497,7 +506,7 @@ export default function create() {
             < View style = {styles.setAtributos}  >
                     
                     
-                    <Text style = {{ marginLeft: 107,color: 'green', fontWeight: 'bold', fontSize: 25,}} > Pontos: { pontos } </Text> 
+                    <Text style = {{ alignSelf: 'center',color: 'darkgreen', fontWeight: 'bold', fontSize: 25,}} > Pontos: { pontos } </Text> 
                     {/* cada view contém dois botões, um para adicionar outro para retirar os pontos dos respectivos atributos */}
                     <View style = { styles.viewButtons }>
                         {/* botoes Arob */}
@@ -870,12 +879,12 @@ export default function create() {
 
                     </View>
 
+
                     <View style = { styles.viewButtons }>
                             {/* botoes Ares */}
                             <Button
                                 
                                 disabled = { desativar[5].desativar }
-
                                 title = ' + '
                                 buttonStyle = {styles.buttonplus}
                                 onPress = { () => {
@@ -972,13 +981,13 @@ export default function create() {
             {/* fim view do atributos */}
             
             {/* esse é o modal que lista os talentos */}
-            <Text style = { styles.textoAtributos }> Talentos </Text>
+            <Text style = { styles.textoAtributos }>  Talentos </Text>
            
             <Modal transparent = {true} visible = { isvisible2 } > 
                 
                 <View style ={ styles.modalTalentos }> 
                     <Text style = { styles.Xmodal } onPress = {() => {setIsvisible2(false)}}> X </Text>            
-                    <Text style = {styles.escolherText}> escolher um talento: </Text>
+                    <Text style = {styles.escolherText}> Escolha o seu talento: </Text>
                     {/* de fato lista os talentos */}
                     <FlatList
                         
@@ -1023,6 +1032,7 @@ export default function create() {
                                     <Text style = {styles.textDescTitle}> { talento[indexlista].name } </Text> 
                                     {/* com o mesmo método de cima é renderizado a descrição do talento */}   
                                     <Text style = {styles.textDesc}> {talento[indexlista].Descricao} </Text>
+                                    <Text style = { styles.Selectmodal } onPress = {() => {setIsvisible2(false), setIsvisible3(false), setEscolha(talento[indexlista].name) }}> Selecionar </Text>
                                     
                             </View>             
                     </Modal> 
@@ -1033,7 +1043,7 @@ export default function create() {
             {/* esse final a vdd é o começo da view dos talentos */}
             <View style = { styles.settalentos }>
 
-                <Text style = {styles.textViewTalentos} >selecione o seu talento {"\n" } ( apenas novatos )</Text>
+                <Text style = {styles.textViewTalentos} >Seleção de talentos {"\n" } ( apenas novatos )</Text>
                 <Text style = {styles.escolha} 
                 onPress = {() => { 
                     setIsvisible2( true ) 
