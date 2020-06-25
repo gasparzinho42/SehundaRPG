@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native';
-
+import   ficha from '../components/ficha';
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: 'gray',
+      backgroundColor: 'indigo',
      
     },
     span: {
-      color: "green",
+      color: "indigo",
       fontWeight: "bold",
       
       alignSelf: 'center',
@@ -34,45 +34,15 @@ const styles = StyleSheet.create({
     button:{
         padding: 5.3,
         
-        backgroundColor: "green",
-        color: 'white',
+       
 
         borderRadius: 5
       
     },
-    buttonContainerAdd : {
-
-        alignSelf: 'center',
-        marginLeft: -100
-        // marginHorizontal: 100,
-        // marginTop: 10
-        
-        
-
-
-    },
-    buttonContainerMinus : {
-        alignSelf: 'center',
-        marginLeft: 100,
-        marginTop: -27,
-        
-        // marginRight: -80
-        // marginEnd: 70,
-        // marginVertical: -45
-
-
-    },
-    // button: {
-    //     alignSelf: 'center' ,
-    //     alignItems: "center",
-    //     backgroundColor: "#fff",
-    //     padding: 10
-
-    // },
   
     item:{
       borderRadius: 9,
-      backgroundColor: "#fff",
+      backgroundColor: '#fff',
       marginVertical: 5 ,
       marginHorizontal: 5 ,
       width: 60
@@ -89,7 +59,7 @@ const styles = StyleSheet.create({
     },
     feridoText: {
       fontSize: 24,
-      color: "green",
+      color: "indigo",
       fontWeight: "bold",
       textAlign: "center"
     },
@@ -108,7 +78,7 @@ const styles = StyleSheet.create({
     },
   
     text2:{
-      color: "green",
+      color: "indigo",
       fontWeight: "bold",
       textAlign: "center"
       
@@ -124,7 +94,7 @@ const styles = StyleSheet.create({
     },
   
     text:{
-      color: "green",
+      color: "indigo",
       fontWeight: "bold",
       textAlign: "center"
       
@@ -133,7 +103,7 @@ const styles = StyleSheet.create({
     },
     vigorItems:{
       color: "black",
-      
+
       textAlign: "center",
       justifyContent: "center"
       
@@ -153,7 +123,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         flexDirection: "column",
 
-        backgroundColor: "#fff5"
+        backgroundColor: "lavender"
 
     },
   
@@ -175,13 +145,12 @@ const styles = StyleSheet.create({
         
         
     
-        backgroundColor: "#fff5"
-        
+        backgroundColor: "lavender"
     },
   
     label: {
     
-      color: "green",
+      color: "indigo",
   
       fontWeight: "bold"
       

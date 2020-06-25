@@ -4,6 +4,7 @@ import { View, TextInput, Text, FlatList, Image, TouchableOpacity, } from 'react
 import CheckBox from '@react-native-community/checkbox';
 
 import styles from '../styles/ficha';
+import { color } from 'react-native-reanimated';
 
 
    
@@ -34,15 +35,39 @@ export default function ficha() {
     ])  
     const [check,setCheck] = useState(false)
     const [text, setText] = useState("")
+    const [desativarMinus,setDesativarMinus] = useState(false)
+    const [desativarPlus,setDesativarPlus] = useState(false)
+    const [corMinus,setCorMinus] = useState('green')
+    const [corPlus,setCorPlus] = useState('green')
 
     const adicionar = () => {
         if(estresse < 10){
             setEstresse( estresse + 1 )
+            setDesativarPlus( false )
+            setDesativarMinus( false )
+            var cor = 'green'
+            setCorPlus( cor )
+            setCorMinus( 'green' )
+        }
+        else{
+            setDesativarPlus( true )
+            var cor = 'white'
+            setCorPlus( cor )
         }
     }
     const retirar = () => {
         if (estresse > 0){
             setEstresse( estresse - 1 )
+            setDesativarMinus( false )
+            setDesativarPlus( false )
+            var cor = 'green'
+            setCorMinus( cor )
+            setCorPlus( 'green' )
+        }
+        else{
+            setDesativarMinus( true )
+            var cor = 'white'
+            setCorMinus( cor )
         }
     }
 
@@ -96,7 +121,7 @@ export default function ficha() {
                 <View className = "portrait" style = {styles.portrait}>
                     <Image
                     style = {styles.image}
-                    source={require('../Assets/goblin.jpg')}
+                    source={require('../Assets/human.png')}
         
                     />
                 </View>
@@ -146,14 +171,19 @@ export default function ficha() {
                 
                 />
 
-                <Text style = {{color: 'green', fontWeight: 'bold', fontSize: 20, alignSelf: 'center'}}>Estresse</Text>
+                <Text style = {{color: 'indigo', fontWeight: 'bold', fontSize: 20, alignSelf: 'center'}}>Estresse</Text>
 
                 {/* início view de estresse */}
                 <View style = {styles.BoxSmall}>
 
                     <TouchableOpacity 
-                        style = {styles. buttonContainerAdd}
-                        
+                        style = {{ 
+                            alignSelf: 'center',
+                            backgroundColor: corMinus,
+                            marginLeft: -100,
+                            borderRadius: 5,
+                            color: 'white' }}
+                        disabled = { desativarMinus }
                         onPress = { retirar }
                     >
                         <Text style = {styles.button}>  -  </Text>
@@ -161,17 +191,24 @@ export default function ficha() {
                     <Text style = {styles.span}>{estresse}/10</Text>
                     <TouchableOpacity
                     
-                        style = {styles. buttonContainerMinus}
+                        style = {{ 
+                            alignSelf: 'center',
+                            marginLeft: 100,
+                            marginTop: -27,
+                            backgroundColor: corPlus,
+                            color: 'white',
+                            borderRadius: 5,  }}
+                        disabled = { desativarPlus }
                         
                         activeOpacity = {0.3}
                         onPress = { adicionar }
                     >
-                        <Text style = {styles.button}>   +   </Text>
+                        <Text style = {styles.button}>  +  </Text>
                     </TouchableOpacity> 
                     
                 </View>
 
-                <Text style = {{color: 'green', fontWeight: 'bold', fontSize: 20, alignSelf: 'center'}}>Ferimento</Text>
+                <Text style = {{color: 'indigo', fontWeight: 'bold', fontSize: 20, alignSelf: 'center'}}>Ferimento</Text>
 
                 {/* fim view de estresse */}
                 <View style = {styles.BoxSmall}>
