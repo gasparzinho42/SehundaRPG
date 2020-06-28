@@ -1086,11 +1086,7 @@ export default function create({ navigation }) {
             title = ' Pronto! '
             buttonStyle = {{backgroundColor: 'darkslateblue', borderWidth: 1, borderColor: 'gold', marginBottom: 10, width: '99%', alignSelf: 'center' }}
             onPress = {function a() {
-                const user = new newuser()
-                user.setAtr(atributos)
-                user.setDta(data)
-                user.setTlt(escolha)
-                user.setbio(bio)
+                
                 navigation.navigate('personagem')
             }}
             />
