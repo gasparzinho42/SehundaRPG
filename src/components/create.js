@@ -4,7 +4,7 @@ import { View, Text, TextInput, FlatList, TouchableOpacity, Alert, Image, Scroll
 
 import styles from '../styles/create'
 import {Button, } from 'react-native-elements'
-import newuser  from './newuser'
+
 import app from './index'
 
 

@@ -4,8 +4,8 @@ import { View, TextInput, Text, FlatList, Image, TouchableOpacity, } from 'react
 import CheckBox from '@react-native-community/checkbox';
 
 import styles from '../styles/ficha';
-import { color } from 'react-native-reanimated';
-import newuser from './newuser';
+
+
 
 
    
