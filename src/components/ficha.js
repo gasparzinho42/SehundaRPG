@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler'
 import React, { useState,Component } from 'react';
-import { View, TextInput, Text, FlatList, Image, TouchableOpacity, } from 'react-native';
+import { View, TextInput, Text, FlatList, Image, TouchableOpacity,ScrollView } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 
 import styles from '../styles/ficha';
@@ -14,24 +14,35 @@ export default function ficha() {
 
 
     const [ estresse, setEstresse ] = useState(0);
-   
-    const [data, setData] = useState([
+    const [ Arob, setArob ] = useState( 8 )
+    const [ Aagi, setAagi ] = useState( 10 )
+    const [ Aard, setAard ] = useState( 8 )
+    const [ Avig, setAvig ] = useState( 15 )
+    const [ Asab, setAsab ] = useState( 10 )
+    const [ Ares, setAres ] = useState( 9 )
 
-        {id: "00", name: "vigor",valor_atual: "10", valor_total: "/10"},
-        {id: "01", name: "Def",valor_base: "10"  },
-        {id: "02", name: "P.P",valor_base: "10"  },
-        {id:"03", name: "P.D",valor_base: "10"  },
-        {id: "04", name: "Vont",valor_base: "10"  }
+    const [ Va, setVa ] = useState( Arob + 10 )
+    const [ imp, setImp ] = useState( 0 )
+    const [ escudo, setEscudo ] = useState( 0 )
+   
+    const [ atributos, setAtributos ] = useState([
+        {id: "00", name: "Robustez", sucesso:  Arob - 4   ,atributo:  Arob , falha: Arob + 5 },
+        {id: "01", name: "Agilidade", sucesso:  Aagi - 4 ,atributo: Aagi  , falha: Aagi + 5 },
+        {id: "02", name: "Ardileza", sucesso:  Aard - 4 ,atributo: Aard  , falha: Aard + 5 },
+        {id: "03", name: "Vigilância", sucesso: Avig - 4 ,atributo: Avig  , falha: Avig + 5 },
+        {id: "04", name: "Sabedoria", sucesso: Asab - 4 ,atributo: Asab , falha: Asab + 5 },
+        {id: "05", name: "Resolução", sucesso:  Ares - 4 ,atributo: Ares  , falha: Ares + 5 }
 
     ])
 
-    const [data2, setData2] = useState([
-        {id: "01", name: "Robustez", sucesso: "6",atributo: "10", falha: "15"},
-        {id: "02", name: "Agilidade", sucesso: "6",atributo: "10", falha: "15"},
-        {id: "03", name: "Ardileza", sucesso: "6",atributo: "10", falha: "15"},
-        {id: "04", name: "Vigilância", sucesso: "6",atributo: "10", falha: "15"},
-        {id: "05", name: "Sabedoria", sucesso: "6",atributo: "10", falha: "15"},
-        {id: "06", name: "Resolução", sucesso: "6",atributo: "10", falha: "15"}
+    const [data, setData] = useState([
+        
+
+        {id: 0, name: "vigor",valor_atual: Va , valor_total: `/${Arob + 10}` },
+        {id: 1, name: "Def",valor_base: Aagi - imp + escudo } ,
+        {id: 2, name: "P.P",valor_base: Math.floor((Arob + Aagi)/2)  },
+        {id: 3, name: "P.D",valor_base:   Math.floor((Avig + Aagi)/2) },
+        {id: 4, name: "Vont",valor_base: Ares + 10  }
 
     ])  
     const [check,setCheck] = useState(false)
@@ -42,7 +53,7 @@ export default function ficha() {
     const [corPlus,setCorPlus] = useState('green')
 
     const adicionar = () => {
-        if(estresse < 10){
+        if(estresse < Va){
             setEstresse( estresse + 1 )
             setDesativarPlus( false )
             setDesativarMinus( false )
@@ -74,14 +85,14 @@ export default function ficha() {
 
     return (
         //   início do container
-        <View style = {styles.container}>
+        <ScrollView style = {styles.container}>
             {/* começo da bio */}
             <View className = "bio" style = {styles.bio}>
                 {/* campo nome */}
                 <View className = "field" style = {styles.field}>
         
                     <Text style = {styles.label}>Nome: </Text>
-                    <TextInput style = {styles.input_nome}  placeholder = "nome" />
+                    <TextInput style = {styles.input_nome}  defaultValue = "Bors" placeholder= 'nome' />
             
                 </View>
                 {/* fim campo nome */}
@@ -157,7 +168,7 @@ export default function ficha() {
                 <FlatList
                     numColumns = {2}
                     
-                    data = {data2}
+                    data = {atributos}
                     keyExtractor = {item => item.id}
                     renderItem={({ item }) =>{
                         return(
@@ -189,13 +200,13 @@ export default function ficha() {
                     >
                         <Text style = {styles.button}>  -  </Text>
                     </TouchableOpacity>
-                    <Text style = {styles.span}>{estresse}/10</Text>
+                        <Text style = {styles.span}>{estresse}/{Va}</Text>
                     <TouchableOpacity
                     
                         style = {{ 
                             alignSelf: 'center',
                             marginLeft: 100,
-                            marginTop: -27,
+                            marginTop: -24,
                             backgroundColor: corPlus,
                             color: 'white',
                             borderRadius: 5,  }}
@@ -226,7 +237,7 @@ export default function ficha() {
             {/* fim bloco dos atributos */}
 
 
-        </View>
+        </ScrollView>
         //   fim container
     
   )//fim do return

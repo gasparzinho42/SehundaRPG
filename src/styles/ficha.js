@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         
         padding: 10,
         height: 60,
-        width:360,
+        width:'99%',
         marginTop: 5,
         
         borderWidth: 2,
@@ -33,9 +33,6 @@ const styles = StyleSheet.create({
     },
     button:{
         padding: 5.3,
-        
-       
-
         borderRadius: 5
       
     },
@@ -43,9 +40,9 @@ const styles = StyleSheet.create({
     item:{
       borderRadius: 9,
       backgroundColor: '#fff',
-      marginVertical: 5 ,
-      marginHorizontal: 5 ,
-      width: 60
+      marginVertical: '1%' ,
+      marginHorizontal: '2.3%' ,
+      width: 55
       
     },
     flatlist2:{
@@ -64,13 +61,14 @@ const styles = StyleSheet.create({
       textAlign: "center"
     },
     item2:{
+      
       borderRadius: 9,
       backgroundColor: "#fff",
-      marginVertical: 7,
-      marginHorizontal: 7 ,
+      marginVertical: '2%' ,
+      marginHorizontal: '5.3%' ,
       marginTop: 5,
       height: 60,
-      width: 165,
+      width: 140,
       justifyContent: 'center'
       
   
@@ -87,7 +85,7 @@ const styles = StyleSheet.create({
     },
     vigorItems2:{
       color: "black",
-      width: 150,
+      width: 140,
       textAlign: "center",
       justifyContent: "center"
       
@@ -135,7 +133,7 @@ const styles = StyleSheet.create({
         borderRadius: 9,
         
     
-        height: 220,
+        height: 500,
         width: "95%",
     
         alignSelf: 'center',

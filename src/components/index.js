@@ -17,12 +17,13 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
+      
       <Stack.Navigator>
        {/* descomentar abaixo para acessar a ficha final */}
         
-        <Stack.Screen name="Sehunda" component={ home } />
+        {/* <Stack.Screen name="Sehunda" component={ home } /> */}
         
-        <Stack.Screen name="criação" component={ create } />
+        {/* <Stack.Screen name="criação" component={ create } /> */}
         <Stack.Screen name="personagem" component={ ficha } />
         
         
