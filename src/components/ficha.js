@@ -14,12 +14,12 @@ export default function ficha() {
 
 
     const [ estresse, setEstresse ] = useState(0);
-    const [ Arob, setArob ] = useState( 8 )
-    const [ Aagi, setAagi ] = useState( 10 )
+    const [ Arob, setArob ] = useState( 10 )
+    const [ Aagi, setAagi ] = useState( 12 )
     const [ Aard, setAard ] = useState( 8 )
-    const [ Avig, setAvig ] = useState( 15 )
-    const [ Asab, setAsab ] = useState( 10 )
-    const [ Ares, setAres ] = useState( 9 )
+    const [ Avig, setAvig ] = useState( 5 )
+    const [ Asab, setAsab ] = useState( 14 )
+    const [ Ares, setAres ] = useState( 11 )
 
     const [ Va, setVa ] = useState( Arob + 10 )
     const [ imp, setImp ] = useState( 0 )
@@ -51,22 +51,31 @@ export default function ficha() {
     const [desativarPlus,setDesativarPlus] = useState(false)
     const [corMinus,setCorMinus] = useState('green')
     const [corPlus,setCorPlus] = useState('green')
-
+    var limite = Ares + 20
     const adicionar = () => {
-        if(estresse < Va){
+        if(estresse < limite){
             setEstresse( estresse + 1 )
             setDesativarPlus( false )
             setDesativarMinus( false )
             var cor = 'green'
             setCorPlus( cor )
             setCorMinus( 'green' )
+          
         }
         else{
             setDesativarPlus( true )
             var cor = 'white'
             setCorPlus( cor )
+            
         }
     }
+    const [recursos, setRecursos] = useState([
+        {id: '01', nome: "comida:", fardo: 0},
+        {id: '02',nome: "água:", fardo: 0},
+        {id: '03', nome: "Munição:", fardo: 0},
+        {id: '04', nome: "Tocha:", fardo: 0}
+    ])
+    const [penalidade_val, setPenalidade_val] = useState( "0" )
     const retirar = () => {
         if (estresse > 0){
             setEstresse( estresse - 1 )
@@ -75,14 +84,37 @@ export default function ficha() {
             var cor = 'green'
             setCorMinus( cor )
             setCorPlus( 'green' )
+          
         }
         else{
             setDesativarMinus( true )
             var cor = 'white'
             setCorMinus( cor )
+            
         }
     }
+  
 
+    const penalidade = () => {
+        if (estresse >= Math.ceil(limite * 0.75)) {
+       
+            setPenalidade_val( "-3" )
+            return penalidade_val
+        }
+        else if (estresse >= Math.floor(limite * 0.50) && estresse < Math.floor(limite * 0.75)) {
+            setPenalidade_val( "-2" )
+            return penalidade_val
+        }
+        else if (estresse >=  Math.floor(limite * 0.25) && estresse < Math.floor(limite * 0.50)) {
+            setPenalidade_val( "-1" )
+            return penalidade_val
+        }
+        else{
+            setPenalidade_val( "0" )
+            return penalidade_val 
+        }
+    }
+    
     return (
         //   início do container
         <ScrollView style = {styles.container}>
@@ -142,52 +174,61 @@ export default function ficha() {
             </View>
             {/* fim da bio */}
 
-            {/* início bolco dos atributos */}
+            {/* início bloco dos atributos */}
             <View style = {styles.AtributosBloco}>
                 {/* primeira lista de atributos */}
-                <FlatList
-                    numColumns = '5'
-                    data = {data}
-                    keyExtractor={item => item.id}
-                    renderItem={({ item }) => {
-                    return (
-                        // retorna os items do DATA
-                        <View style={styles.item}>
+                <View>
+                    <FlatList
+                        numColumns = '5'
+                        data = {data}
+                        keyExtractor={item => item.id}
+                        renderItem={({ item }) => {
+                        return (
+                            // retorna os items do DATA
+                            <View style={styles.item}>
 
-                            <Text style={styles.text}>{item.name}</Text>
-                            <Text style = {styles.vigorItems}>{item.valor_base} {item.valor_atual} {item.valor_total}</Text>
+                                <Text style={styles.text}>{item.name}</Text>
+                                <Text style = {styles.vigorItems}>{item.valor_base} {item.valor_atual} {item.valor_total}</Text>
 
-                        </View>
-                        
-                    );
-                    }} 
-                />
+                            </View>
+                            
+                        );
+                        }} 
+                    />
+                </View>
+                
                 {/* fim primeira lista de atributos */}
 
                 {/* segunda lista de atributos */}
-                <FlatList
-                    numColumns = {2}
-                    
-                    data = {atributos}
-                    keyExtractor = {item => item.id}
-                    renderItem={({ item }) =>{
-                        return(
-                            <View style = {styles.item2}>
-                            <Text style = {styles.text2}>{item.name}</Text>
-                            <Text style = {styles.vigorItems2}>{item.sucesso} {item.atributo} {item.falha}</Text>
-                            </View>
-            
-            
-                        );
-                    }}
+                <View>
+                    <FlatList
+                        numColumns = {2}
+                        
+                        data = {atributos}
+                        keyExtractor = {item => item.id}
+                        renderItem={({ item }) =>{
+                            return(
+                                <View style = {styles.item2}>
+                                <Text style = {styles.text}>{item.name}</Text>
+                                <Text style = {{alignSelf: 'center'}}> {item.atributo} </Text>
+                                <Text style = {styles.text2}>suc.          Fail.</Text>
+                        
+                                <Text style = {styles.vigorItems2}> {item.sucesso}               {item.falha}</Text>
+                                {/* os espaços aqui são gambiarras mas que funcionaram muito bem */}
+                                </View>
                 
-                />
+                
+                            );
+                        }}
+                    
+                    />
+                </View>
 
-                <Text style = {{color: 'indigo', fontWeight: 'bold', fontSize: 20, alignSelf: 'center'}}>Estresse</Text>
+                <Text style = {styles.title}>Estresse</Text>
 
                 {/* início view de estresse */}
                 <View style = {styles.BoxSmall}>
-
+                    
                     <TouchableOpacity 
                         style = {{ 
                             alignSelf: 'center',
@@ -196,11 +237,15 @@ export default function ficha() {
                             borderRadius: 5,
                             color: 'white' }}
                         disabled = { desativarMinus }
-                        onPress = { retirar }
+                        onPress = { () => {
+                            retirar()
+                            penalidade() 
+                        } }
+                    
                     >
                         <Text style = {styles.button}>  -  </Text>
                     </TouchableOpacity>
-                        <Text style = {styles.span}>{estresse}/{Va}</Text>
+                        <Text style = {styles.span}>{estresse}/{limite}</Text>
                     <TouchableOpacity
                     
                         style = {{ 
@@ -213,16 +258,29 @@ export default function ficha() {
                         disabled = { desativarPlus }
                         
                         activeOpacity = {0.3}
-                        onPress = { adicionar }
+                        onPress = { () => {
+                            adicionar()
+                            penalidade()
+                        } }
                     >
                         <Text style = {styles.button}>  +  </Text>
                     </TouchableOpacity> 
+                    <View>
+                        <Text style = {styles.text}> Penalidade </Text>
+                    <Text style = {styles.span2}> { penalidade_val } </Text>
+                    {/* <Text style = {styles.span2}> -1= { Math.floor(limite * 0.25)} </Text>
+                    <Text style = {styles.span2}> -2= { Math.floor(limite * 0.50)} </Text>
+                    <Text style = {styles.span2}> -3= { Math.floor(limite * 0.75)} </Text> */}
+                    </View>
+                   
                     
                 </View>
-
-                <Text style = {{color: 'indigo', fontWeight: 'bold', fontSize: 20, alignSelf: 'center'}}>Ferimento</Text>
-
                 {/* fim view de estresse */}
+                
+                {/* começo view de ferimento */}
+                <Text style = {styles.title}>Ferimento</Text>
+
+                
                 <View style = {styles.BoxSmall}>
                     <CheckBox
                         style = {{alignSelf: 'center',}}
@@ -231,11 +289,35 @@ export default function ficha() {
                     />
 
                 </View>
-
-
+                {/* fim da view de ferimento */}
+                <Text style = {styles.title}> Recursos </Text>
+                {/* inicio view de recursos */}
+                <View style = {styles.BoxSmall}>
+                    {/* essa flatlist renderiza tudo oq tem nos recuros, bem simpleszinho */}
+                    
+                    <FlatList
+                    numColumns = {1}
+                    keyExtractor = {item => item.id}
+                    data = {recursos}
+                    renderItem = {({ item }) => {
+                        return(
+                            <View style = {styles.BoxSmall}>
+                                <Text style = {styles.label}> {item.nome}</Text>
+                                <TextInput>  </TextInput>
+                                <Text style = {styles.label}> fardo: </Text>
+                                <TextInput> </TextInput>
+                            </View>
+                        )
+                       
+                        
+                    }}
+                    
+                    />
+                </View>
+                {/* fim da view de recursos */}
+            
             </View>
             {/* fim bloco dos atributos */}
-
 
         </ScrollView>
         //   fim container

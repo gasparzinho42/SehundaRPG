@@ -11,9 +11,15 @@ const styles = StyleSheet.create({
       fontWeight: "bold",
       
       alignSelf: 'center',
-      marginTop: -25
+      marginTop: -27
 
     },
+    span2: {
+      color: "black",   
+      alignSelf: 'center',
+      
+    },
+    
 
   
     BoxSmall : {
@@ -21,7 +27,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         
         padding: 10,
-        height: 60,
+        
         width:'99%',
         marginTop: 5,
         
@@ -67,8 +73,8 @@ const styles = StyleSheet.create({
       marginVertical: '2%' ,
       marginHorizontal: '5.3%' ,
       marginTop: 5,
-      height: 60,
-      width: 140,
+      height: 90,
+      // width: "41%",
       justifyContent: 'center'
       
   
@@ -133,7 +139,7 @@ const styles = StyleSheet.create({
         borderRadius: 9,
         
     
-        height: 500,
+        // height: "100%",
         width: "95%",
     
         alignSelf: 'center',
@@ -198,7 +204,12 @@ const styles = StyleSheet.create({
       borderStyle: "dashed",
       borderRadius: 10,
       
+    },
+    title: {
+      color: 'indigo',
+      fontWeight: 'bold',
+      fontSize: 20,
+      alignSelf: 'center'
     }
-  
   });
 export default styles;
